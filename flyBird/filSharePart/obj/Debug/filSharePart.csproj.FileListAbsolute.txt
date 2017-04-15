@@ -1,0 +1,9 @@
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\bin\Debug\filSharePart.exe.config
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\bin\Debug\filSharePart.exe
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\bin\Debug\filSharePart.pdb
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\obj\Debug\filSharePart.csprojResolveAssemblyReference.cache
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\obj\Debug\filSharePart.Properties.Resources.resources
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\obj\Debug\filSharePart.csproj.GenerateResource.Cache
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\obj\Debug\filSharePart.exe
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\obj\Debug\filSharePart.pdb
+C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\filSharePart\obj\Debug\filSharePart.UI.resources

@@ -1,0 +1,9 @@
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\bin\Debug\flyBirdTests1.dll
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\bin\Debug\flyBirdTests1.pdb
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\bin\Debug\flyBird.exe
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\bin\Debug\flyBird.pdb
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\bin\Debug\flyBird.exe.config
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.csprojResolveAssemblyReference.cache
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.dll
+c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.pdb

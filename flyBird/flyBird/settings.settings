@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="flyBird" GeneratedClassName="settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="controlPostfix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">##</Value>
+    </Setting>
+    <Setting Name="socketPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3461</Value>
+    </Setting>
+    <Setting Name="controlPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">*+.</Value>
+    </Setting>
+    <Setting Name="fileSharePort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3462</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
