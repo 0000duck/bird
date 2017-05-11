@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using BirdUI1;
+using flyBird.HotspotAndIP;
 using flyBird.Messages;
 using flyBird.WinFormUI;
 
@@ -22,7 +23,15 @@ namespace flyBird
         private ContactsOnMain()
         {
             InitializeComponent();
+            
+            setMyIp();
+
             setMsgReceivedEvent();
+        }
+
+        private void setMyIp()
+        {
+            myIpLabel.Text = IpDetails.getInstance().getMyLocalIp();
         }
 
         private void setMsgReceivedEvent()
@@ -70,8 +79,6 @@ namespace flyBird
         }
 
 
-       
-
         private static int userCount;
 
 
@@ -97,6 +104,11 @@ namespace flyBird
 
         public void removeContact(Contact contact)
         {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<Contact>(removeContact), contact);
+                return;
+            }
             contactsPanel.Controls.Remove(contact);
             mainForm.Container.Controls.Remove(contact.chatDisplay);
 
@@ -143,6 +155,21 @@ namespace flyBird
                 e.SuppressKeyPress = true;
                 connectBtn_Click(sender, e);
             }
+        }
+
+        public void removeContactByToken(string token)
+        {
+            if (contacts.ContainsKey(token))
+            {
+                removeContact(contacts[token]);
+            }
+        }
+
+        
+
+        private void refrshIpButton_Click_1(object sender, EventArgs e)
+        {
+              setMyIp();
         }
     }
 }

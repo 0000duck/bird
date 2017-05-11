@@ -16,12 +16,12 @@ namespace flyBird
         public TextMessage msg { set; get; }
     }
 
-    public class MiddleController:Form
+    public class MiddleController : Form
     {
         #region staticInstance
 
         private static MiddleController instance;
-    
+
 
         private MiddleController()
         {
@@ -70,7 +70,7 @@ namespace flyBird
             controlHandler = ControlHandler.getInstance();
 
 
-            fileShareController=new FileShareMiddleController();
+            fileShareController = new FileShareMiddleController();
 
 
             //events registering
@@ -93,13 +93,19 @@ namespace flyBird
             encoder.ControlCommandOccured += controlHandler.OnControlOccured;
 
             reciever.TextMessageReceived += OnTextMsgReceived;
+
+            fileShareController.DisconnectedTransferClient += OnDisconnected;
+        }
+
+        private void OnDisconnected(object o, EventArgs e)
+        {
         }
 
         private void OnClientAccepted(object o, SocketAddedEventArgs e)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action<object,SocketAddedEventArgs>(OnClientAccepted), o,e);
+                Invoke(new Action<object, SocketAddedEventArgs>(OnClientAccepted), o, e);
                 return;
             }
             uiMainForm.contactsPannel.addContact(e.id);
@@ -116,12 +122,17 @@ namespace flyBird
         }
 
 
-        public void connect(string ipToken,string port)
+        public void connect(string ipToken, string port)
         {
+//            //using common port
+//            clientPart.connect(getIpString(ipToken), commonPort);
+//
+//            fileShareController.connect(ipToken, filePort); //fs 
+            
             //using common port
-            clientPart.connect(getIpString(ipToken),commonPort);
+            clientPart.connect(getIpString(ipToken),"3661");
 
-            fileShareController.connect(ipToken,filePort);  //fs
+            fileShareController.connect(ipToken, "3662"); //fs
         }
 
         public void disconnect(string ipToken)
@@ -131,35 +142,49 @@ namespace flyBird
         }
 
 
+        public void disconnectHandle(string token)
+        {
+            disconnect(token);
+            ContactsOnMain.Instance.removeContactByToken(token);
+        }
+
         private string getIpString(string ipToken)
         {
             return ipToken; //should implement a method to minimize it.
         }
-        public void sendText(string text,string ipToken_)
+
+        public void sendText(string text, string ipToken_)
         {
-            //sending
-            sender.sendMessage(text,socketStore.getSocket(ipToken_));
+            try
+            {
+                //sending
+                sender.sendMessage(text, socketStore.getSocket(ipToken_));
 
-            
-            var textMsg = new TextMessage() { text =text, ipToken =ipToken_ };
 
-            //saving
-            //
+                var textMsg = new TextMessage() {text = text, ipToken = ipToken_};
+
+                //saving
+                //
+            }
+            catch (Exception e)
+            {
+                disconnectHandle(ipToken_);
+                disconnect(ipToken_);
+            }
         }
 
         private void OnTextMsgReceived(object o, TextMessageRecivedEventArgs e)
         {
-            if (MsgReceived!=null)
+            if (MsgReceived != null)
             {
-                var textMsg = new TextMessage(){text = e.text,ipToken = e.id};
+                var textMsg = new TextMessage() {text = e.text, ipToken = e.id};
 
                 //saving
                 //
 
                 //to ui
-                MsgReceived(this,new TextMessageArgs(){ msg=textMsg});
+                MsgReceived(this, new TextMessageArgs() {msg = textMsg});
             }
-           
         }
 
         public void startServer(string port)
@@ -167,33 +192,33 @@ namespace flyBird
             //using common port
             try
             {
-                serverPart.startServer(commonPort);
+//                serverPart.startServer(commonPort);
+                serverPart.startServer("3661");
 
-                fileShareController.startServer(filePort); //fs
-
-
+//                fileShareController.startServer(filePort); //fs
+                fileShareController.startServer("3662"); //fs
             }
             catch (System.Net.Sockets.SocketException e)
             {
                 Console.WriteLine(e);
                 throw;
             }
-            
         }
 
 
         public void stopServer()
         {
-           
-                serverPart.stopServer();
+            serverPart.stopServer();
             fileShareController.stopServer();
-
         }
 
         private void closeSocket(string ipToken)
         {
-            socketStore.SocketDic[ipToken].Close();
-            socketStore.SocketDic.Remove(ipToken);
+            if (socketStore.SocketDic.ContainsKey(ipToken))
+            {
+                socketStore.SocketDic[ipToken].Close();
+                socketStore.SocketDic.Remove(ipToken);
+            }
         }
 
         public void closeAllSockets()
@@ -207,6 +232,4 @@ namespace flyBird
 //            serverPart.connectionFinder.Close();
         }
     }
-
-   
 }

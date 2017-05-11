@@ -22,3 +22,22 @@ C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\flyBird\bin\Debug\
 C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\flyBird\bin\Debug\WinFormUI\images\recordG.png
 C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\flyBird\bin\Debug\WinFormUI\images\sendB.png
 C:\Users\Dushan\Documents\Visual Studio 2017\Projects\flyBird\flyBird\bin\Debug\WinFormUI\images\sendG.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\bin\Debug\flyBird.exe.config
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\bin\Debug\flyBird.exe
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\bin\Debug\flyBird.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\bin\Debug\MetroFramework.Design.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\bin\Debug\MetroFramework.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.csprojResolveAssemblyReference.cache
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.Properties.Resources.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.ChatBubble.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\BirdUI1.ChatDisplay.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.Contact.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.ContactsOnMain.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.MainForm.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.Settings.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.UI_1.chatApp.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.csproj.GenerateResource.Cache
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.exe
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.FileMessageBubble.resources

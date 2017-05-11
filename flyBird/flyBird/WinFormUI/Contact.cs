@@ -43,7 +43,7 @@ namespace flyBird.WinFormUI
             InitializeComponent();
             nameText.Text = name;
             tokenText.Text = token;
-            chatDisplay = new ChatDisplay(token);
+            chatDisplay = new ChatDisplay(token,MiddleController.getInstance().fileShareController);
 
             //add previous msges or add previous chat display
 

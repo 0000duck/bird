@@ -62,7 +62,11 @@
     <Compile Include="FileShare\PacketIO.cs" />
     <Compile Include="FileShare\TransferManager.cs" />
     <Compile Include="FileShare\TransferQueue.cs" />
+    <Compile Include="HotspotAndIP\Hotspot.cs" />
+    <Compile Include="HotspotAndIP\IpDetails.cs" />
+    <Compile Include="Messages\FileMessage.cs" />
     <Compile Include="Messages\Message.cs" />
+    <Compile Include="Messages\MsgType.cs" />
     <Compile Include="Messages\TextMessage.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,6 +114,12 @@
     <Compile Include="WinFormUI\contactsOnMain.Designer.cs">
       <DependentUpon>ContactsOnMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinFormUI\FileMessageBubble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinFormUI\FileMessageBubble.Designer.cs">
+      <DependentUpon>FileMessageBubble.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinFormUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +165,9 @@
     <EmbeddedResource Include="WinFormUI\contactsOnMain.resx">
       <DependentUpon>ContactsOnMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WinFormUI\FileMessageBubble.resx">
+      <DependentUpon>FileMessageBubble.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WinFormUI\mainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,24 +179,25 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WinFormUI\images\addFileB.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WinFormUI\images\addFileG.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WinFormUI\images\recordB.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WinFormUI\images\recordG.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WinFormUI\images\sendB.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="WinFormUI\images\sendG.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\addFileB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addFileG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recordB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recordG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sendB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sendG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

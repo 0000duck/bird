@@ -50,9 +50,12 @@ namespace flyBird
 
         protected virtual void OnQueuedTransferClient(TransferQueue queue)
         {
+            
+          
             if (QueuedTransferClient != null)
             {
-                QueuedTransferClient(this, queue);
+
+                QueuedTransferClient(this, queue); //Queue event fireing
             }
         }
 
@@ -62,17 +65,23 @@ namespace flyBird
             {
                 ChangedProgress(this, queue);
             }
+            
+            
         }
 
         protected virtual void OnCompletedTransferClient()
         {
+            Console.WriteLine("out if");
             if (CompletedTransferClient != null)
             {
+                Console.WriteLine("came to if");
                 CompletedTransferClient(this, EventArgs.Empty);
             }
+
         }
 
         #endregion
+
         #region properties
 
         private string serverPort;
@@ -83,6 +92,7 @@ namespace flyBird
         public bool serverRunning { private set; get; }
 
         #endregion
+
         #region privateFunctions
 
         private void transferClient_Stopped_(object sender, TransferQueue queue)
@@ -92,14 +102,13 @@ namespace flyBird
 
         private void transferClient_Queued_(object sender, TransferQueue queue)
         {
-            OnQueuedTransferClient(queue);
-
             queueList.Add(queue);
 
             if (queue.Type == QueueType.Download)
             {
                 transferManager.StartTransfer(queue);
             }
+            OnQueuedTransferClient(queue);
         }
 
         private void transferClient_ProgressChanged_(object sender, TransferQueue queue)
@@ -109,9 +118,8 @@ namespace flyBird
 
         private void transferClient_Disconnected_(object sender, EventArgs e)
         {
-            deregisterEvents();
             OnDisconnectedTransferClient();
-
+            deregisterEvents();
             closeAllQueues();
 
             transferManager = null;
@@ -124,8 +132,16 @@ namespace flyBird
 
         private void transferClient_Completed_(object sender, TransferQueue queue)
         {
+             Console.WriteLine("trans complete in fsc");
             System.Media.SystemSounds.Asterisk.Play();
+
             OnCompletedTransferClient();
+          
+        }
+
+         private void transferClient_Completed_2(object sender, TransferQueue queue)
+        {
+             Console.WriteLine("trans complete in fsc 2");
         }
 
         private void setDefaultSaveDirectory()
@@ -173,11 +189,14 @@ namespace flyBird
         private void registerEvents()
         {
             transferManager.Complete += transferClient_Completed_;
+            transferManager.Complete += transferClient_Completed_2;
             transferManager.Disconnected += transferClient_Disconnected_;
             transferManager.ProgressChanged += transferClient_ProgressChanged_;
             transferManager.Queued += transferClient_Queued_;
             transferManager.Stopped += transferClient_Stopped_;
         }
+
+       
 
         private void deregisterEvents()
         {
@@ -185,6 +204,7 @@ namespace flyBird
                 return;
 
             transferManager.Complete -= transferClient_Completed_;
+            transferManager.Complete -= transferClient_Completed_2;
             transferManager.Disconnected -= transferClient_Disconnected_;
             transferManager.ProgressChanged -= transferClient_ProgressChanged_;
             transferManager.Queued -= transferClient_Queued_;
@@ -192,12 +212,6 @@ namespace flyBird
         }
 
         #endregion
-
-
-
-
-
-
 
         // functions under this will be used in public
 
@@ -207,6 +221,7 @@ namespace flyBird
         {
             initialize();
         }
+
         public void initialize()
         {
             acceptListener = new AcceptListener();
@@ -214,10 +229,7 @@ namespace flyBird
             setDefaultSaveDirectory();
         }
 
-        public TransferManager transferManager
-        {
-            get; private set;
-        }
+        public TransferManager transferManager { get; private set; }
 
         public bool hasTransferClientInitialized()
         {
@@ -255,9 +267,9 @@ namespace flyBird
 
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                MessageBox.Show("Unable to listen on port " + port+" \n"+e.Message, "", MessageBoxButtons.OK,
+                MessageBox.Show("Unable to listen on port " + port + " \n" + e.Message, "", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
             }
@@ -376,9 +388,7 @@ namespace flyBird
                 queue.Close();
             }
         }
-       
-        #endregion publicFunctions
 
-       
+        #endregion publicFunctions
     }
 }

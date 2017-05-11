@@ -7,3 +7,19 @@ c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\bin\
 c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.csprojResolveAssemblyReference.cache
 c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.dll
 c:\users\dushan\documents\visual studio 2017\Projects\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\WinFormUI\images\addFileB.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\WinFormUI\images\addFileG.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\WinFormUI\images\recordB.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\WinFormUI\images\recordG.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\WinFormUI\images\sendB.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\WinFormUI\images\sendG.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\flyBirdTests1.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\flyBirdTests1.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\flyBird.exe
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\MetroFramework.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\flyBird.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Debug\flyBird.exe.config
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.csprojResolveAssemblyReference.cache
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\obj\Debug\flyBirdTests1.pdb

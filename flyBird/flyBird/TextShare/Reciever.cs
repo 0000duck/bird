@@ -93,6 +93,8 @@ namespace flyBird
             }
             catch (Exception e)
             {
+                socket.Close();
+                MiddleController.getInstance().disconnectHandle(id);
                 Console.WriteLine(e);
             }
         }

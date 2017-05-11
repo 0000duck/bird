@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -53,7 +54,10 @@
   <ItemGroup>
     <Compile Include="EncoderTests.cs" />
     <Compile Include="FileShare\FileShareMiddleControllerTests.cs" />
+    <Compile Include="HotspotAndIP\HotspotTests.cs" />
+    <Compile Include="HotspotAndIP\IpDetailsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinFormUI\MainFormTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\flyBird\flyBird.csproj">

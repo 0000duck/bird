@@ -12,7 +12,7 @@ namespace flyBird.WinFormUI
 
         //Chat bubble
         public static Color chatBubbleInColor=Color.DarkGray;
-        public static Color chatBubbleOutColor= Color.LimeGreen;
+        public static Color chatBubbleOutColor=Color.FromArgb(255, 53, 151, 181);
 
         public static Color chatBubbleInTextColor=Color.White;
         public static Color chatBubbleOutTextColor=Color.White;
@@ -28,7 +28,7 @@ namespace flyBird.WinFormUI
         public static Color contactHoverColor =Color.LightBlue;
 
         public static Color contactSelectedColor =Color.White;
-        public static Color contactSelectedSideColor = Color.LimeGreen;
+        public static Color contactSelectedSideColor = Color.FromArgb(255, 53, 151, 181);
 
 
         //Connect button

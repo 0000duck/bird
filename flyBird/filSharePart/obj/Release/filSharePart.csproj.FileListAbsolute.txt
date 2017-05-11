@@ -1,0 +1,11 @@
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\bin\Release\filSharePart.exe.config
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\bin\Release\filSharePart.exe
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\bin\Release\filSharePart.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\bin\Release\filSharePart.exe.CodeAnalysisLog.xml
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\bin\Release\filSharePart.exe.lastcodeanalysissucceeded
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\obj\Release\filSharePart.csprojResolveAssemblyReference.cache
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\obj\Release\filSharePart.UI.resources
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\obj\Release\filSharePart.Properties.Resources.resources
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\obj\Release\filSharePart.csproj.GenerateResource.Cache
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\obj\Release\filSharePart.exe
+C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\obj\Release\filSharePart.pdb

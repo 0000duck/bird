@@ -41,11 +41,24 @@ namespace flyBird.TextShare
         public void sendMessage(string text, Socket socket)
         {
             sendBuffer = Encoding.Default.GetBytes(text);
+            try
+            {
+                if (socket.Connected)
+                {
+                    socket.Send(sendBuffer, 0, sendBuffer.Length, 0);
 
-            socket.Send(sendBuffer, 0, sendBuffer.Length, 0);
 
+                    OnMessageSent(text);
+                }
+               
 
-            OnMessageSent(text);
+            }
+            catch (Exception e)
+            {
+               
+              
+            }
+           
         }
 
 

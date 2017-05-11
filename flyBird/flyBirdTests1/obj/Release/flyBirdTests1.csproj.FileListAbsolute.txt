@@ -1,0 +1,16 @@
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\WinFormUI\images\addFileB.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\WinFormUI\images\addFileG.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\WinFormUI\images\recordB.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\WinFormUI\images\recordG.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\WinFormUI\images\sendB.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\WinFormUI\images\sendG.png
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\flyBirdTests1.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\flyBirdTests1.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\flyBird.exe
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\MetroFramework.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\flyBird.pdb
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\bin\Release\flyBird.exe.config
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\obj\Release\flyBirdTests1.csprojResolveAssemblyReference.cache
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\obj\Release\flyBirdTests1.dll
+C:\Users\Dushan\Desktop\bird\flyBird\flyBirdTests1\obj\Release\flyBirdTests1.pdb

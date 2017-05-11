@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using flyBird.WinFormUI;
+using flyBird.Messages;
 
-namespace flyBird { 
+namespace flyBird
+{
     public partial class ChatBubble : UserControl
     {
         public ChatBubble()
@@ -24,7 +26,7 @@ namespace flyBird {
 
         private Color inMsgTimeColor = AppTheme.chatBubbleInTimeColor;
         private Color outMsgTimeColor = AppTheme.chatBubbleOutTimeColor;
-        public ChatBubble(string message, string time, msgType messageType)
+        public ChatBubble(string message, string time, MsgType messageType)
         {
             InitializeComponent();
             bubbleText.Text = message;
@@ -59,16 +61,6 @@ namespace flyBird {
             bubbleTime.Top = bubbleText.Bottom +5;
             this.Height = bubbleTime.Bottom ;
         }
-
-
-        
-
-
-            public enum msgType
-            {
-                IN,
-                OUT
-            }
 
         private void chatBubble_Resize(object sender, EventArgs e)
         {

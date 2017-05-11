@@ -13,8 +13,6 @@ namespace flyBird
 
     public class TransferQueue
     {
-       
-       
         public static TransferQueue CreateUploadQueue(TransferManager client, string fileName)
         {
             try
@@ -27,7 +25,7 @@ namespace flyBird
                 queue.Thread = new Thread(new ParameterizedThreadStart(transferProc));
                 queue.Thread.IsBackground = true;
 
-                queue.ID = Program.Rand.Next();///Random int generator
+                queue.ID = Program.Rand.Next(); ///Random int generator
 
                 queue.Length = queue.FS.Length;
                 return queue;
@@ -57,8 +55,6 @@ namespace flyBird
                 return null;
             }
         }
-
-
 
 
         private const int FILE_BUFFER_SIZE = 8175;
@@ -102,6 +98,7 @@ namespace flyBird
         {
             Running = false;
         }
+
         public void Pause()
         {
             if (!Paused)
@@ -111,11 +108,11 @@ namespace flyBird
             else
             {
                 pauseEvent.Set();
-
             }
 
             Paused = !Paused;
         }
+
         public void Close()
         {
             try
@@ -124,7 +121,6 @@ namespace flyBird
             }
             catch
             {
-
             }
             Running = false;
             FS.Close();
@@ -140,13 +136,12 @@ namespace flyBird
                 FS.Position = index;
                 FS.Write(bytes, 0, bytes.Length);
                 Transferred += bytes.Length;
-
             }
         }
 
         private static void transferProc(object o)
         {
-            TransferQueue queue = (TransferQueue)o;
+            TransferQueue queue = (TransferQueue) o;
 
             while (queue.Running && queue.Index < queue.Length)
             {
@@ -164,7 +159,7 @@ namespace flyBird
 
                     PacketWriter pw = new PacketWriter();
 
-                    pw.Write((byte)Headers.Chunk);
+                    pw.Write((byte) Headers.Chunk);
                     pw.Write(queue.ID);
                     pw.Write(queue.Index);
                     pw.Write(read);
@@ -175,11 +170,12 @@ namespace flyBird
 
                     queue.Client.Send(pw.GetBytes());
 
-                    queue.Progress = (int)((queue.Transferred * 100) / queue.Length);
+                    queue.Progress = (int) ((queue.Transferred * 100) / queue.Length);
 
                     if (queue.LastProgress < queue.Progress)
                     {
                         queue.LastProgress = queue.Progress;
+
 
                         queue.Client.callProgressChanged(queue);
                     }
@@ -189,6 +185,5 @@ namespace flyBird
             }
             queue.Close();
         }
-
     }
 }

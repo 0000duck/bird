@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\enterprise\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="15.0">
+ <Targets>
+  <Target Name="C:\Users\Dushan\Desktop\bird\flyBird\filSharePart\bin\Release\filSharePart.exe">
+   <Modules>
+    <Module Name="filsharepart.exe">
+     <Namespaces>
+      <Namespace Name="filSharePart">
+       <Types>
+        <Type Name="AcceptListener" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="NonBreaking">
+           <Issue Name="NonBreaking" Certainty="95" Level="CriticalError">Implement IDisposable on 'AcceptListener' because it creates members of the following IDisposable types: 'Socket'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="TransferManager" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="DependsOnFix">
+           <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'TransferManager' because it creates members of the following IDisposable types: 'Socket'. If 'TransferManager' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#Complete" Kind="Event" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="Breaking">
+             <Issue Name="Second" Certainty="95" Level="Error">Declare the second parameter of 'TransferEventHandler' as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ProgressChanged" Kind="Event" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="Breaking">
+             <Issue Name="Second" Certainty="95" Level="Error">Declare the second parameter of 'TransferEventHandler' as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Queued" Kind="Event" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="Breaking">
+             <Issue Name="Second" Certainty="95" Level="Error">Declare the second parameter of 'TransferEventHandler' as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Stopped" Kind="Event" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="Breaking">
+             <Issue Name="Second" Certainty="95" Level="Error">Declare the second parameter of 'TransferEventHandler' as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="TransferQueue" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="DependsOnFix">
+           <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'TransferQueue' because it creates members of the following IDisposable types: 'FileStream', 'ManualResetEvent'. If 'TransferQueue' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#transferProc(System.Object)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotLockOnObjectsWithWeakIdentity" Category="Microsoft.Reliability" CheckId="CA2002" Status="Active" Created="2017-05-03 12:29:25Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="CriticalError" Path="C:\Users\Dushan\Desktop\bird\flyBird\filSharePart" File="TransferQueue.cs" Line="188">'TransferQueue.transferProc(object)' locks on a reference of type 'byte[]'. Replace this with a lock against an object with strong-identity.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="filSharePart.Properties">
+       <Types>
+        <Type Name="Resources" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Assembly" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="ExcludedInSource" Created="2017-05-03 12:29:25Z" FixCategory="NonBreaking" LastSeen="0001-01-01 00:00:00Z" />
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>Avoid uncalled private code</Name>
+   <Description>There is uncalled code that is not externally visible and is not a known runtime entry point. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182264.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="15.0.0.0" />
+  </Rule>
+  <Rule TypeName="DeclareEventHandlersCorrectly" Category="Microsoft.Design" CheckId="CA1009">
+   <Name>Declare event handlers correctly</Name>
+   <Description>By convention, .NET events have two parameters that specify the event sender and event data. Event handler signatures should follow this form: void MyEventHandler(object sender, EventArgs e). The 'sender' parameter is always of type System.Object, even if it is possible to employ a more specific type. The 'e' parameter is always of type System.EventArgs. Events that do not provide event data should use the System.EventHandler delegate type. Event handlers return void so that they can send each event to multiple target methods. Any value returned by a target would be lost after the first call.</Description>
+   <Resolution Name="Second">Declare the second parameter of {0} as an EventArgs, or an instance of a type that extends EventArgs, named 'e'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182133.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="designrules.dll" Version="15.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotLockOnObjectsWithWeakIdentity" Category="Microsoft.Reliability" CheckId="CA2002">
+   <Name>Do not lock on objects with weak identity</Name>
+   <Description>Don't take locks on objects that may bleed across AppDomains or that don't have a strong identity.</Description>
+   <Resolution Name="Default">{0} locks on a reference of type {1}. Replace this with a lock against an object with strong-identity.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182290.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalError</MessageLevel>
+   <File Name="reliabilityrules.dll" Version="15.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+   <Name>Types that own disposable fields should be disposable</Name>
+   <Description>Types that declare disposable members should also implement IDisposable. If the type does not own any unmanaged resources, do not implement a finalizer on it.</Description>
+   <Resolution Name="DependsOnFix">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}. If {0} has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Resolution>
+   <Resolution Name="NonBreaking">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182172.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="designrules.dll" Version="15.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

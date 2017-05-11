@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactsOnMain));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.refrshIpButton = new MetroFramework.Controls.MetroButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.myIpLabel = new System.Windows.Forms.Label();
             this.connectIpTokenText = new MetroFramework.Controls.MetroTextBox();
             this.connectBtn = new MetroFramework.Controls.MetroButton();
             this.contactsPanel = new MetroFramework.Controls.MetroPanel();
@@ -39,6 +42,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(151)))), ((int)(((byte)(181)))));
+            this.panel1.Controls.Add(this.refrshIpButton);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.myIpLabel);
             this.panel1.Controls.Add(this.connectIpTokenText);
             this.panel1.Controls.Add(this.connectBtn);
             this.panel1.Controls.Add(this.contactsPanel);
@@ -47,6 +53,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(240, 552);
             this.panel1.TabIndex = 0;
+            // 
+            // refrshIpButton
+            // 
+            this.refrshIpButton.BackgroundImage = global::flyBird.Properties.Resources.Refresh;
+            this.refrshIpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refrshIpButton.Location = new System.Drawing.Point(138, 20);
+            this.refrshIpButton.Name = "refrshIpButton";
+            this.refrshIpButton.Size = new System.Drawing.Size(26, 23);
+            this.refrshIpButton.TabIndex = 11;
+            this.refrshIpButton.UseSelectable = true;
+            this.refrshIpButton.Click += new System.EventHandler(this.refrshIpButton_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(13, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "My IP :";
+            // 
+            // myIpLabel
+            // 
+            this.myIpLabel.AutoSize = true;
+            this.myIpLabel.ForeColor = System.Drawing.Color.White;
+            this.myIpLabel.Location = new System.Drawing.Point(53, 24);
+            this.myIpLabel.Name = "myIpLabel";
+            this.myIpLabel.Size = new System.Drawing.Size(79, 13);
+            this.myIpLabel.TabIndex = 8;
+            this.myIpLabel.Text = "Not Connected";
             // 
             // connectIpTokenText
             // 
@@ -64,7 +101,7 @@
             this.connectIpTokenText.CustomButton.Visible = false;
             this.connectIpTokenText.Lines = new string[] {
         "127.0.0.1"};
-            this.connectIpTokenText.Location = new System.Drawing.Point(16, 42);
+            this.connectIpTokenText.Location = new System.Drawing.Point(16, 60);
             this.connectIpTokenText.MaxLength = 32767;
             this.connectIpTokenText.Name = "connectIpTokenText";
             this.connectIpTokenText.PasswordChar = '\0';
@@ -85,7 +122,7 @@
             // 
             this.connectBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("connectBtn.BackgroundImage")));
             this.connectBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.connectBtn.Location = new System.Drawing.Point(138, 42);
+            this.connectBtn.Location = new System.Drawing.Point(138, 60);
             this.connectBtn.Name = "connectBtn";
             this.connectBtn.Size = new System.Drawing.Size(75, 23);
             this.connectBtn.TabIndex = 6;
@@ -118,6 +155,7 @@
             this.Name = "ContactsOnMain";
             this.Size = new System.Drawing.Size(241, 552);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -128,5 +166,8 @@
         private MetroFramework.Controls.MetroPanel contactsPanel;
         private MetroFramework.Controls.MetroButton connectBtn;
         private MetroFramework.Controls.MetroTextBox connectIpTokenText;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label myIpLabel;
+        private MetroFramework.Controls.MetroButton refrshIpButton;
     }
 }

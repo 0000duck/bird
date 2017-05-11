@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Windows.Forms.VisualStyles;
 
 namespace flyBird
 {
@@ -12,8 +13,6 @@ namespace flyBird
 
     public class TransferManager
     {
-
-        
         private Socket _baseSocket;
         private byte[] _buffer = new byte[8192];
         private ConnectCallback _connectCallback;
@@ -194,6 +193,7 @@ namespace flyBird
 
         private void process()
         {
+           
             PacketReader pr = new PacketReader(_buffer);
 
             Headers header = (Headers) pr.ReadByte();
@@ -213,6 +213,7 @@ namespace flyBird
                     if (Queued != null)
                     {
                         Queued(this, queue);
+                     
                     }
                 }
                     break;
@@ -222,6 +223,7 @@ namespace flyBird
                     if (_transfers.ContainsKey(id))
                     {
                         _transfers[id].Start();
+                      
                     }
                 }
                     break;
@@ -253,6 +255,7 @@ namespace flyBird
 
                 case Headers.Chunk:
                 {
+                    Console.WriteLine("chunk header");
                     int id = pr.ReadInt32();
                     long index = pr.ReadInt64();
                     int size = pr.ReadInt32();
@@ -270,8 +273,11 @@ namespace flyBird
                         if (queue.Progress == 100)
                         {
                             queue.Close();
+
+                           
                             if (Complete != null)
                             {
+                              
                                 Complete(this, queue);
                             }
                         }
@@ -286,26 +292,30 @@ namespace flyBird
         {
             try
             {
-                int found = _baseSocket.EndReceive(ar);
-
-                if (found >= 4)
+                if (_baseSocket.Connected)
                 {
-                    _baseSocket.Receive(_buffer, 0, 4, SocketFlags.None);
+                    int found = _baseSocket.EndReceive(ar);
 
-                    int size = BitConverter.ToInt32(_buffer, 0);
-                    int read = _baseSocket.Receive(_buffer, 0, size, SocketFlags.None);
-
-                    while (read < size)
+                    if (found >= 4)
                     {
-                        read += _baseSocket.Receive(_buffer, read, size - read, SocketFlags.None);
-                    }
+                        _baseSocket.Receive(_buffer, 0, 4, SocketFlags.None);
 
-                    process();
+                        int size = BitConverter.ToInt32(_buffer, 0);
+                        int read = _baseSocket.Receive(_buffer, 0, size, SocketFlags.None);
+
+                        while (read < size)
+                        {
+                            read += _baseSocket.Receive(_buffer, read, size - read, SocketFlags.None);
+                        }
+
+                        process();
+                    }
+                    Run();
                 }
-                Run();
             }
             catch
             {
+                Console.WriteLine("wede hari");
                 Close();
             }
         }
