@@ -14,5 +14,14 @@
     <Setting Name="fileSharePort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3462</Value>
     </Setting>
+    <Setting Name="outputFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Output/Received</Value>
+    </Setting>
+    <Setting Name="audioPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Output/Recorded</Value>
+    </Setting>
+    <Setting Name="audioInPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Output/Received</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

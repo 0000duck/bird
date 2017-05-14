@@ -36,10 +36,10 @@ namespace BirdUI1
             this.refPanel1 = new System.Windows.Forms.Panel();
             this.workSpace = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.sendingTextBox = new MetroFramework.Controls.MetroTextBox();
             this.recordBtn = new System.Windows.Forms.PictureBox();
             this.sendFileBtn = new System.Windows.Forms.PictureBox();
             this.sendBtn = new System.Windows.Forms.PictureBox();
+            this.sendingTextBox = new MetroFramework.Controls.MetroTextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.recordBtn)).BeginInit();
@@ -74,16 +74,16 @@ namespace BirdUI1
             this.refPanel2.Enabled = false;
             this.refPanel2.Location = new System.Drawing.Point(15, 13);
             this.refPanel2.Name = "refPanel2";
-            this.refPanel2.Size = new System.Drawing.Size(426, 70);
+            this.refPanel2.Size = new System.Drawing.Size(375, 55);
             this.refPanel2.TabIndex = 8;
             // 
             // refPanel1
             // 
             this.refPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.refPanel1.Enabled = false;
-            this.refPanel1.Location = new System.Drawing.Point(187, 13);
+            this.refPanel1.Location = new System.Drawing.Point(240, 13);
             this.refPanel1.Name = "refPanel1";
-            this.refPanel1.Size = new System.Drawing.Size(435, 70);
+            this.refPanel1.Size = new System.Drawing.Size(375, 55);
             this.refPanel1.TabIndex = 7;
             // 
             // workSpace
@@ -105,6 +105,50 @@ namespace BirdUI1
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(635, 66);
             this.panel3.TabIndex = 0;
+            // 
+            // recordBtn
+            // 
+            this.recordBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.recordBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.recordBtn.Image = global::flyBird.Properties.Resources.recordB;
+            this.recordBtn.Location = new System.Drawing.Point(15, 6);
+            this.recordBtn.Name = "recordBtn";
+            this.recordBtn.Size = new System.Drawing.Size(45, 50);
+            this.recordBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.recordBtn.TabIndex = 3;
+            this.recordBtn.TabStop = false;
+            this.recordBtn.Click += new System.EventHandler(this.recordBtn_Click);
+            this.recordBtn.MouseLeave += new System.EventHandler(this.BtnHover_Left);
+            this.recordBtn.MouseHover += new System.EventHandler(this.BtnHover);
+            // 
+            // sendFileBtn
+            // 
+            this.sendFileBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.sendFileBtn.Image = global::flyBird.Properties.Resources.addFileB;
+            this.sendFileBtn.Location = new System.Drawing.Point(66, 6);
+            this.sendFileBtn.Name = "sendFileBtn";
+            this.sendFileBtn.Size = new System.Drawing.Size(45, 50);
+            this.sendFileBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sendFileBtn.TabIndex = 2;
+            this.sendFileBtn.TabStop = false;
+            this.sendFileBtn.Click += new System.EventHandler(this.sendFileBtn_Click);
+            this.sendFileBtn.MouseLeave += new System.EventHandler(this.BtnHover_Left);
+            this.sendFileBtn.MouseHover += new System.EventHandler(this.BtnHover);
+            // 
+            // sendBtn
+            // 
+            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendBtn.Image = global::flyBird.Properties.Resources.sendB;
+            this.sendBtn.Location = new System.Drawing.Point(574, 9);
+            this.sendBtn.Name = "sendBtn";
+            this.sendBtn.Size = new System.Drawing.Size(48, 48);
+            this.sendBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sendBtn.TabIndex = 1;
+            this.sendBtn.TabStop = false;
+            this.sendBtn.Click += new System.EventHandler(this.sendPicButton_Click);
+            this.sendBtn.MouseLeave += new System.EventHandler(this.BtnHover_Left);
+            this.sendBtn.MouseHover += new System.EventHandler(this.BtnHover);
             // 
             // sendingTextBox
             // 
@@ -140,49 +184,6 @@ namespace BirdUI1
             this.sendingTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.sendingTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.sendingTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sendingTextBox_KeyDown);
-            // 
-            // recordBtn
-            // 
-            this.recordBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.recordBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.recordBtn.Image = global::flyBird.Properties.Resources.recordB;
-            this.recordBtn.Location = new System.Drawing.Point(15, 6);
-            this.recordBtn.Name = "recordBtn";
-            this.recordBtn.Size = new System.Drawing.Size(45, 50);
-            this.recordBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.recordBtn.TabIndex = 3;
-            this.recordBtn.TabStop = false;
-            this.recordBtn.MouseLeave += new System.EventHandler(this.BtnHover_Left);
-            this.recordBtn.MouseHover += new System.EventHandler(this.BtnHover);
-            // 
-            // sendFileBtn
-            // 
-            this.sendFileBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sendFileBtn.Image = global::flyBird.Properties.Resources.addFileB;
-            this.sendFileBtn.Location = new System.Drawing.Point(66, 6);
-            this.sendFileBtn.Name = "sendFileBtn";
-            this.sendFileBtn.Size = new System.Drawing.Size(45, 50);
-            this.sendFileBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.sendFileBtn.TabIndex = 2;
-            this.sendFileBtn.TabStop = false;
-            this.sendFileBtn.Click += new System.EventHandler(this.sendFileBtn_Click);
-            this.sendFileBtn.MouseLeave += new System.EventHandler(this.BtnHover_Left);
-            this.sendFileBtn.MouseHover += new System.EventHandler(this.BtnHover);
-            // 
-            // sendBtn
-            // 
-            this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.sendBtn.Image = global::flyBird.Properties.Resources.sendB;
-            this.sendBtn.Location = new System.Drawing.Point(574, 9);
-            this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(48, 48);
-            this.sendBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.sendBtn.TabIndex = 1;
-            this.sendBtn.TabStop = false;
-            this.sendBtn.Click += new System.EventHandler(this.sendPicButton_Click);
-            this.sendBtn.MouseLeave += new System.EventHandler(this.BtnHover_Left);
-            this.sendBtn.MouseHover += new System.EventHandler(this.BtnHover);
             // 
             // ChatDisplay
             // 

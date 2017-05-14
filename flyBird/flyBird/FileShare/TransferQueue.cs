@@ -76,6 +76,7 @@ namespace flyBird
 
         public QueueType Type;
 
+
         public TransferManager Client;
         public Thread Thread;
         public FileStream FS;
@@ -168,7 +169,7 @@ namespace flyBird
                     queue.Transferred += read;
                     queue.Index += read;
 
-                    queue.Client.Send(pw.GetBytes());
+                    queue.Client.Send(pw.GetBytes()); //error !!!!! occured 
 
                     queue.Progress = (int) ((queue.Transferred * 100) / queue.Length);
 
@@ -176,8 +177,10 @@ namespace flyBird
                     {
                         queue.LastProgress = queue.Progress;
 
-
-                        queue.Client.callProgressChanged(queue);
+                        
+                            queue.Client.callProgressChanged(queue);
+                        
+                        
                     }
 
                     Thread.Sleep(1);

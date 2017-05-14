@@ -32,11 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.settingsPic = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.serverBtn = new MetroFramework.Controls.MetroButton();
             this.menuPic = new System.Windows.Forms.PictureBox();
             this.backPic = new System.Windows.Forms.PictureBox();
             this.container = new MetroFramework.Controls.MetroPanel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.serverBtn = new MetroFramework.Controls.MetroButton();
+            this.refrshIpButton = new MetroFramework.Controls.MetroButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.myIpLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuPic)).BeginInit();
@@ -58,6 +61,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(147)))), ((int)(((byte)(176)))));
+            this.panel2.Controls.Add(this.refrshIpButton);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.myIpLabel);
             this.panel2.Controls.Add(this.serverBtn);
             this.panel2.Controls.Add(this.menuPic);
             this.panel2.Controls.Add(this.backPic);
@@ -67,6 +73,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(873, 55);
             this.panel2.TabIndex = 4;
+            // 
+            // serverBtn
+            // 
+            this.serverBtn.Location = new System.Drawing.Point(248, 20);
+            this.serverBtn.Name = "serverBtn";
+            this.serverBtn.Size = new System.Drawing.Size(130, 23);
+            this.serverBtn.TabIndex = 7;
+            this.serverBtn.Text = "Let others connect";
+            this.serverBtn.UseSelectable = true;
+            this.serverBtn.Click += new System.EventHandler(this.serverBtn_Click_1);
             // 
             // menuPic
             // 
@@ -113,15 +129,36 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // serverBtn
+            // refrshIpButton
             // 
-            this.serverBtn.Location = new System.Drawing.Point(100, 15);
-            this.serverBtn.Name = "serverBtn";
-            this.serverBtn.Size = new System.Drawing.Size(130, 23);
-            this.serverBtn.TabIndex = 7;
-            this.serverBtn.Text = "Let others connect";
-            this.serverBtn.UseSelectable = true;
-            this.serverBtn.Click += new System.EventHandler(this.serverBtn_Click_1);
+            this.refrshIpButton.BackgroundImage = global::flyBird.Properties.Resources.Refresh;
+            this.refrshIpButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.refrshIpButton.Location = new System.Drawing.Point(184, 20);
+            this.refrshIpButton.Name = "refrshIpButton";
+            this.refrshIpButton.Size = new System.Drawing.Size(26, 23);
+            this.refrshIpButton.TabIndex = 14;
+            this.refrshIpButton.UseSelectable = true;
+            this.refrshIpButton.Click += new System.EventHandler(this.refrshIpButton_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(59, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "My IP :";
+            // 
+            // myIpLabel
+            // 
+            this.myIpLabel.AutoSize = true;
+            this.myIpLabel.ForeColor = System.Drawing.Color.White;
+            this.myIpLabel.Location = new System.Drawing.Point(99, 24);
+            this.myIpLabel.Name = "myIpLabel";
+            this.myIpLabel.Size = new System.Drawing.Size(79, 13);
+            this.myIpLabel.TabIndex = 12;
+            this.myIpLabel.Text = "Not Connected";
             // 
             // MainForm
             // 
@@ -141,6 +178,7 @@
             this.Load += new System.EventHandler(this.mainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backPic)).EndInit();
             this.ResumeLayout(false);
@@ -155,6 +193,9 @@
         private System.Windows.Forms.PictureBox menuPic;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private MetroFramework.Controls.MetroButton serverBtn;
+        private MetroFramework.Controls.MetroButton refrshIpButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label myIpLabel;
     }
 }
 

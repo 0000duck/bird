@@ -41,3 +41,6 @@ C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.csproj.GenerateRe
 C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.exe
 C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.pdb
 C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.FileMessageBubble.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.FileMessageBubbleSent.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.AudioRecorder.resources
+C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.AudioMessageBubble.resources

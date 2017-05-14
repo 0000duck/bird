@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using flyBird.Messages;
 
@@ -16,17 +18,17 @@ namespace flyBird.WinFormUI
         private Color inMsgTimeColor = AppTheme.chatBubbleInTimeColor;
         private Color outMsgTimeColor = AppTheme.chatBubbleOutTimeColor;
 
-        private FileShareMiddleController middleController;
+        private FileShareMiddleController fsmiddleController;
 
 
-        public FileMessageBubble(FileShareMiddleController mc, string time, MsgType messageType)
+        public FileMessageBubble(FileShareMiddleController fsmc, string time, MsgType messageType)
         {
             InitializeComponent();
 
 
-            middleController = mc;
+            fsmiddleController = fsmc;
 
-            setControllerSubscriptions(mc);
+            setControllerSubscriptions(fsmc);
 
             this.bubbleTime.Text = time;
 
@@ -56,7 +58,16 @@ namespace flyBird.WinFormUI
             fileShareMiddleController.QueuedTransferClient += OnTransferClientQueued;
             fileShareMiddleController.CompletedTransferClient += OnTransferClientCompleted;
             fileShareMiddleController.StopedTransferClient += OnTransferClientStopped;
+
+            setProgressChangeSubscription();
         }
+
+        public void setProgressChangeSubscription()
+        {
+           
+            fsmiddleController.ChangedProgress += OnTransferClientProgressChanged;
+        }
+
 
         private void unsetControllerSubscriptions(FileShareMiddleController fileShareMiddleController)
         {
@@ -94,7 +105,7 @@ namespace flyBird.WinFormUI
             lstTransfers.Items[queue.ID.ToString()].Remove();
         }
 
-        private void OnTransferClientQueued(object sender, TransferQueue queue)
+        public void OnTransferClientQueued(object sender, TransferQueue queue)
         {
             if (InvokeRequired)
             {
@@ -135,7 +146,7 @@ namespace flyBird.WinFormUI
                 return;
             }
             Console.WriteLine("Unsubcribing bbl");
-            unsetControllerSubscriptions(middleController);
+            unsetControllerSubscriptions(fsmiddleController);
         }
 
         private void progressSet(TransferQueue queue)
@@ -145,18 +156,22 @@ namespace flyBird.WinFormUI
                 Invoke(new Action<TransferQueue>(progressSet), queue);
                 return;
             }
-
-            int x = queue.Progress;
-
-            lstTransfers.Items[queue.ID.ToString()].SubItems[2].Text = x + "%";
-            int overallProgress = middleController.getOverallProgress();
-            showOverallProgress(overallProgress);
-            if (overallProgress == 100)
+            if (lstTransfers.Items!=null)
             {
-                Console.WriteLine("complete...");
+                int x = queue.Progress;
 
-                unsetControllerSubscriptions(middleController);
+                lstTransfers.Items[queue.ID.ToString()].SubItems[2].Text = x + "%";
+                int overallProgress = fsmiddleController.getOverallProgress();
+                showOverallProgress(overallProgress);
+                if (overallProgress == 100)
+                {
+                    Console.WriteLine("complete...");
+
+                    unsetControllerSubscriptions(fsmiddleController);
+                }
+
             }
+            
         }
 
         private void showOverallProgress(int value)
@@ -191,6 +206,25 @@ namespace flyBird.WinFormUI
 //            else
 //            {
 //                setConnectBtnText("Connect");
+        }
+
+        private void outputFolderButton_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"c:\test");
+        }
+
+        public void outputButton_Click(object sender, EventArgs e)
+        {
+            
+
+            string abspath = Path.GetFullPath(@settings.Default.outputFolder);
+
+            Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                FileName = abspath,
+                UseShellExecute = true,
+                Verb = "open"
+            });
         }
     }
 

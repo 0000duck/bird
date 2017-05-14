@@ -12,7 +12,11 @@ namespace flyBird
     {
         Connected,
         Sendmemac,
-        Sendingmac
+        Sendingmac,
+        FileComming,
+        FileConfiremed,
+        FileRejected,
+        AudioComming
     }
 
     public class ControlCommandOccuredEventArgs
@@ -68,7 +72,7 @@ namespace flyBird
 
                 OnControlComamndOccured(id, socket,control);
 
-                return null;
+                return "";
                 
             }
             else

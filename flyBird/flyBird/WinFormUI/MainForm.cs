@@ -20,6 +20,7 @@ namespace flyBird
         {
             InitializeComponent();
             setDependentObjects();
+            setMyIp();
            
         }
 
@@ -204,6 +205,7 @@ namespace flyBird
 
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            middleController.closeAllSockets();
             Environment.Exit(0);
         }
 
@@ -232,6 +234,16 @@ namespace flyBird
                 serverBtn.Text = "Stop accepting others";
                 serverBtn.BackColor = serverBtnStopColor;
             }
+        }
+
+        private void refrshIpButton_Click(object sender, EventArgs e)
+        {
+            setMyIp();
+        }
+
+        private void setMyIp()
+        {
+            myIpLabel.Text = IpDetails.getInstance().getMyLocalIp();
         }
 
         /// Dragable tab for form

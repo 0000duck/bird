@@ -24,15 +24,12 @@ namespace flyBird
         {
             InitializeComponent();
             
-            setMyIp();
+       
 
             setMsgReceivedEvent();
         }
 
-        private void setMyIp()
-        {
-            myIpLabel.Text = IpDetails.getInstance().getMyLocalIp();
-        }
+        
 
         private void setMsgReceivedEvent()
         {
@@ -165,11 +162,15 @@ namespace flyBird
             }
         }
 
-        
 
-        private void refrshIpButton_Click_1(object sender, EventArgs e)
+        private void myIpLabel_Click(object sender, EventArgs e)
         {
-              setMyIp();
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

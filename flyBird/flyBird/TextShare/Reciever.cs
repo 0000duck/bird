@@ -83,7 +83,7 @@ namespace flyBird
 
 
                     //then this passes only msgs that are not control msgs to forward.
-                    if (text != null)
+                    if (text.Length > 0)
                     {
                         OnTextMessageReceived(id, receivedText);
                         //text msg processing loogic here

@@ -56,6 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\AudioRecorder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Audio\AudioRecorder.Designer.cs">
+      <DependentUpon>AudioRecorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Audio\Recorder.cs" />
+    <Compile Include="ControlMessage\ControlMessage.cs" />
     <Compile Include="FileShare\AcceptListener.cs" />
     <Compile Include="FileShare\FileShareMiddleController.cs" />
     <Compile Include="FileShare\Headers.cs" />
@@ -64,6 +72,7 @@
     <Compile Include="FileShare\TransferQueue.cs" />
     <Compile Include="HotspotAndIP\Hotspot.cs" />
     <Compile Include="HotspotAndIP\IpDetails.cs" />
+    <Compile Include="Messages\AudioMessage.cs" />
     <Compile Include="Messages\FileMessage.cs" />
     <Compile Include="Messages\Message.cs" />
     <Compile Include="Messages\MsgType.cs" />
@@ -74,8 +83,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="TextShare\ClientPart.cs" />
-    <Compile Include="TextShare\ControlHandler.cs" />
-    <Compile Include="TextShare\Encoder.cs" />
+    <Compile Include="ControlMessage\ControlHandler.cs" />
+    <Compile Include="ControlMessage\Encoder.cs" />
     <Compile Include="TextShare\IDMaker.cs" />
     <Compile Include="TextShare\Reciever.cs" />
     <Compile Include="MiddleController.cs" />
@@ -114,6 +123,18 @@
     <Compile Include="WinFormUI\contactsOnMain.Designer.cs">
       <DependentUpon>ContactsOnMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinFormUI\AudioMessageBubble.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinFormUI\AudioMessageBubble.Designer.cs">
+      <DependentUpon>AudioMessageBubble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinFormUI\FileMessageBubbleSent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WinFormUI\FileMessageBubbleSent.Designer.cs">
+      <DependentUpon>FileMessageBubbleSent.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinFormUI\FileMessageBubble.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,6 +170,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Audio\AudioRecorder.resx">
+      <DependentUpon>AudioRecorder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -164,6 +188,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WinFormUI\contactsOnMain.resx">
       <DependentUpon>ContactsOnMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinFormUI\AudioMessageBubble.resx">
+      <DependentUpon>AudioMessageBubble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinFormUI\FileMessageBubbleSent.resx">
+      <DependentUpon>FileMessageBubbleSent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinFormUI\FileMessageBubble.resx">
       <DependentUpon>FileMessageBubble.cs</DependentUpon>
@@ -198,6 +228,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sendG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Microphone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48c99328741557.55cfd3c8be389.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\big-bouncing-music-speakeranimated-gif.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

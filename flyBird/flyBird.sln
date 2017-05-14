@@ -5,11 +5,9 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flyBird", "flyBird\flyBird.csproj", "{BCF18595-57D0-4A4F-BA30-6DE8BEF14650}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flyBirdTests1", "flyBirdTests1\flyBirdTests1.csproj", "{C5A7FD82-BF56-4D66-9030-211276919054}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flyBirdTests", "flyBirdTests1\flyBirdTests.csproj", "{C5A7FD82-BF56-4D66-9030-211276919054}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filSharePart", "filSharePart\filSharePart.csproj", "{59C97D1F-BECD-4D33-A569-1446552AB199}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdUI1", "..\..\..\..\Desktop\BirdUI1 b2 event test\BirdUI1\BirdUI1.csproj", "{124D6EE7-C451-44A6-B956-D86DC4037DFB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{59C97D1F-BECD-4D33-A569-1446552AB199}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59C97D1F-BECD-4D33-A569-1446552AB199}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59C97D1F-BECD-4D33-A569-1446552AB199}.Release|Any CPU.Build.0 = Release|Any CPU
-		{124D6EE7-C451-44A6-B956-D86DC4037DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{124D6EE7-C451-44A6-B956-D86DC4037DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{124D6EE7-C451-44A6-B956-D86DC4037DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{124D6EE7-C451-44A6-B956-D86DC4037DFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

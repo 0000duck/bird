@@ -63,6 +63,16 @@ namespace flyBird.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _48c99328741557_55cfd3c8be389 {
+            get {
+                object obj = ResourceManager.GetObject("48c99328741557.55cfd3c8be389", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addFileB {
             get {
                 object obj = ResourceManager.GetObject("addFileB", resourceCulture);
@@ -76,6 +86,26 @@ namespace flyBird.Properties {
         internal static System.Drawing.Bitmap addFileG {
             get {
                 object obj = ResourceManager.GetObject("addFileG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap big_bouncing_music_speakeranimated_gif {
+            get {
+                object obj = ResourceManager.GetObject("big-bouncing-music-speakeranimated-gif", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Microphone {
+            get {
+                object obj = ResourceManager.GetObject("Microphone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -17,6 +17,8 @@ namespace flyBird
         private byte[] _buffer = new byte[8192];
         private ConnectCallback _connectCallback;
         private Dictionary<int, TransferQueue> _transfers = new Dictionary<int, TransferQueue>();
+        public string audioMessageFolder;
+        public bool isAudioComming;
 
         public Dictionary<int, TransferQueue> Transfers
         {
@@ -193,7 +195,6 @@ namespace flyBird
 
         private void process()
         {
-           
             PacketReader pr = new PacketReader(_buffer);
 
             Headers header = (Headers) pr.ReadByte();
@@ -206,6 +207,7 @@ namespace flyBird
                     string fileName = pr.ReadString();
                     long length = pr.ReadInt64();
 
+                 
                     TransferQueue queue = TransferQueue.CreateDownloadQueue(this, id, Path.Combine(OutputFolder,
                         Path.GetFileName(fileName)), length);
                     _transfers.Add(id, queue);
@@ -213,7 +215,6 @@ namespace flyBird
                     if (Queued != null)
                     {
                         Queued(this, queue);
-                     
                     }
                 }
                     break;
@@ -223,7 +224,6 @@ namespace flyBird
                     if (_transfers.ContainsKey(id))
                     {
                         _transfers[id].Start();
-                      
                     }
                 }
                     break;
@@ -255,7 +255,6 @@ namespace flyBird
 
                 case Headers.Chunk:
                 {
-                    Console.WriteLine("chunk header");
                     int id = pr.ReadInt32();
                     long index = pr.ReadInt64();
                     int size = pr.ReadInt32();
@@ -274,10 +273,9 @@ namespace flyBird
                         {
                             queue.Close();
 
-                           
+
                             if (Complete != null)
                             {
-                              
                                 Complete(this, queue);
                             }
                         }
@@ -315,7 +313,6 @@ namespace flyBird
             }
             catch
             {
-                Console.WriteLine("wede hari");
                 Close();
             }
         }

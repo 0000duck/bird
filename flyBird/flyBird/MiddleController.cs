@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -223,13 +224,18 @@ namespace flyBird
 
         public void closeAllSockets()
         {
-            foreach (var socketD in socketStore.SocketDic)
+           var dic= socketStore.SocketDic.ToList();
+//            foreach (var socketD in socketStore.SocketDic)
+                for (int i=0;i< socketStore.SocketDic.Count;i++)
             {
-                socketD.Value.Close();
-                socketStore.SocketDic.Remove(socketD.Key);
+               ((Socket) dic[i].Value).Close();
+               
             }
-
-//            serverPart.connectionFinder.Close();
+            if (serverPart.isServerRunning)
+            {
+                stopServer();
+            }
+            
         }
     }
 }

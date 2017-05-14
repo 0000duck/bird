@@ -52,11 +52,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Audio\AudioRecorderTests.cs" />
     <Compile Include="EncoderTests.cs" />
     <Compile Include="FileShare\FileShareMiddleControllerTests.cs" />
     <Compile Include="HotspotAndIP\HotspotTests.cs" />
     <Compile Include="HotspotAndIP\IpDetailsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinFormUI\FileMessageBubbleTests.cs" />
     <Compile Include="WinFormUI\MainFormTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -70,5 +70,41 @@ namespace flyBird {
                 this["fileSharePort"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Output/Received")]
+        public string outputFolder {
+            get {
+                return ((string)(this["outputFolder"]));
+            }
+            set {
+                this["outputFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Output/Recorded")]
+        public string audioPath {
+            get {
+                return ((string)(this["audioPath"]));
+            }
+            set {
+                this["audioPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Output/Received")]
+        public string audioInPath {
+            get {
+                return ((string)(this["audioInPath"]));
+            }
+            set {
+                this["audioInPath"] = value;
+            }
+        }
     }
 }

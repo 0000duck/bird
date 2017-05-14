@@ -19,6 +19,8 @@ namespace flyBird
 
         public event TransferEventHandler QueuedTransferClient;
 
+        public event TransferEventHandler Download;
+
         public event TransferEventHandler ChangedProgress;
 
         public event EventHandler CompletedTransferClient;
@@ -50,11 +52,8 @@ namespace flyBird
 
         protected virtual void OnQueuedTransferClient(TransferQueue queue)
         {
-            
-          
             if (QueuedTransferClient != null)
             {
-
                 QueuedTransferClient(this, queue); //Queue event fireing
             }
         }
@@ -65,8 +64,6 @@ namespace flyBird
             {
                 ChangedProgress(this, queue);
             }
-            
-            
         }
 
         protected virtual void OnCompletedTransferClient()
@@ -77,7 +74,6 @@ namespace flyBird
                 Console.WriteLine("came to if");
                 CompletedTransferClient(this, EventArgs.Empty);
             }
-
         }
 
         #endregion
@@ -88,6 +84,7 @@ namespace flyBird
         private AcceptListener acceptListener;
         private string outputFolder;
         List<TransferQueue> queueList = new List<TransferQueue>();
+        private string audioMessageFolder;
 
         public bool serverRunning { private set; get; }
 
@@ -111,6 +108,7 @@ namespace flyBird
             OnQueuedTransferClient(queue);
         }
 
+
         private void transferClient_ProgressChanged_(object sender, TransferQueue queue)
         {
             OnChangedProgress(queue);
@@ -132,25 +130,33 @@ namespace flyBird
 
         private void transferClient_Completed_(object sender, TransferQueue queue)
         {
-             Console.WriteLine("trans complete in fsc");
+            Console.WriteLine("trans complete in fsc");
             System.Media.SystemSounds.Asterisk.Play();
 
             OnCompletedTransferClient();
-          
         }
 
-         private void transferClient_Completed_2(object sender, TransferQueue queue)
+        private void transferClient_Completed_2(object sender, TransferQueue queue)
         {
-             Console.WriteLine("trans complete in fsc 2");
+            Console.WriteLine("trans complete in fsc 2");
         }
 
         private void setDefaultSaveDirectory()
         {
-            outputFolder = "Transfers";
+//            outputFolder = "Transfers";
+            outputFolder = settings.Default.outputFolder;
+            audioMessageFolder = settings.Default.audioInPath;
+
 
             if (!Directory.Exists(outputFolder))
             {
                 Directory.CreateDirectory(outputFolder);
+
+            }
+            if (!Directory.Exists(audioMessageFolder))
+            {
+                Directory.CreateDirectory(audioMessageFolder);
+
             }
         }
 
@@ -160,6 +166,7 @@ namespace flyBird
 
             transferManager = new TransferManager(e.Accepted);
             transferManager.OutputFolder = outputFolder;
+            transferManager.audioMessageFolder = audioMessageFolder;
             registerEvents();
 
 
@@ -181,6 +188,8 @@ namespace flyBird
 
             registerEvents();
             transferManager.OutputFolder = outputFolder;
+            transferManager.audioMessageFolder = audioMessageFolder;
+
             transferManager.Run();
 
             OnConnected(transferManager.EndPoint.Address.ToString()); //firing event connected
@@ -196,7 +205,6 @@ namespace flyBird
             transferManager.Stopped += transferClient_Stopped_;
         }
 
-       
 
         private void deregisterEvents()
         {
@@ -346,10 +354,10 @@ namespace flyBird
             return queue.Running;
         }
 
-        public void chooseAndSendFile()
+        public bool ChooseAndSendFile()
         {
             if (!hasTransferClientInitialized())
-                return;
+                return false;
 
             using (OpenFileDialog o = new OpenFileDialog())
             {
@@ -362,9 +370,31 @@ namespace flyBird
                     {
                         sendFile(file);
                     }
+                    return true;
                 }
             }
+            return false;
         }
+
+        public void SendChoosedFiles(OpenFileDialog o)
+        {
+            if (!hasTransferClientInitialized())
+                return;
+
+            foreach (string file in o.FileNames)
+            {
+                sendFile(file);
+            }
+        }
+
+        public void SendAudioFiles(string file)
+        {
+            if (!hasTransferClientInitialized())
+                return;
+
+            sendFile(file);
+        }
+
 
         public void sendFile(String file)
         {
