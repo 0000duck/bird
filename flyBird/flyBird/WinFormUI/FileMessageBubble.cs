@@ -64,7 +64,6 @@ namespace flyBird.WinFormUI
 
         public void setProgressChangeSubscription()
         {
-           
             fsmiddleController.ChangedProgress += OnTransferClientProgressChanged;
         }
 
@@ -113,7 +112,6 @@ namespace flyBird.WinFormUI
                 return;
             }
 
-          
 
             ListViewItem i = new ListViewItem();
             i.Text = queue.ID.ToString();
@@ -122,11 +120,13 @@ namespace flyBird.WinFormUI
             i.SubItems.Add("0%");
             i.Tag = queue;
             i.Name = queue.ID.ToString();
+            tempLastFile = queue.FileName;
             lstTransfers.Items.Add(i);
             i.EnsureVisible();
         }
 
 
+        private string tempLastFile = "";
 
         private void OnTransferClientProgressChanged(object sender, TransferQueue queue)
         {
@@ -156,7 +156,7 @@ namespace flyBird.WinFormUI
                 Invoke(new Action<TransferQueue>(progressSet), queue);
                 return;
             }
-            if (lstTransfers.Items!=null)
+            if (lstTransfers.Items != null)
             {
                 int x = queue.Progress;
 
@@ -169,9 +169,7 @@ namespace flyBird.WinFormUI
 
                     unsetControllerSubscriptions(fsmiddleController);
                 }
-
             }
-            
         }
 
         private void showOverallProgress(int value)
@@ -215,13 +213,30 @@ namespace flyBird.WinFormUI
 
         public void outputButton_Click(object sender, EventArgs e)
         {
-            
-
             string abspath = Path.GetFullPath(@settings.Default.outputFolder);
+
+            string path = abspath + "\\" + tempLastFile;
+
+            Console.WriteLine("Output path" + path);
+
+
+            if (File.Exists(path))
+            {
+                Process.Start("explorer.exe", "/select, " + path);
+            }
+        }
+
+        private void fileOpenBtn_Click(object sender, EventArgs e)
+        {
+            string abspath = Path.GetFullPath(@settings.Default.outputFolder);
+
+            string path = abspath + "\\" + tempLastFile;
+
+            Console.WriteLine("Output path" + path);
 
             Process.Start(new System.Diagnostics.ProcessStartInfo()
             {
-                FileName = abspath,
+                FileName = path,
                 UseShellExecute = true,
                 Verb = "open"
             });

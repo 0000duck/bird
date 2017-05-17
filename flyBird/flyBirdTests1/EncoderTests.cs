@@ -16,16 +16,16 @@ namespace flyBird.Tests
         [TestMethod()]
         public void checkForControlTest()
         {
-//            string msg = "control";
-//
-//            string encodedControl = Encoder.getInstance().getControlMsg(msg);
-//            Console.WriteLine(encodedControl);
-//            string decodedControl = Encoder.getInstance().checkForControl(encodedControl,"12" );
+  
+
+            string cmsg = Encoder.getInstance().getControlMsg(Control.ContactUpdateCc.ToString())+"this is data";
+
+            Console.WriteLine("Msg="+cmsg);
+
+            Encoder.getInstance().checkForControl("id", new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp), cmsg);
 
 
-//            Assert.AreEqual(msg, decodedControl);
-
-       
         }
+
     }
 }

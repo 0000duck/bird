@@ -14,7 +14,7 @@ namespace flyBird.HotspotAndIP.Tests
         [TestMethod()]
         public void createHotspotTest()
         {
-            Hotspot.getInstance().createHotspot("dkTestWIfi","123456789",true);
+            Hotspot.getInstance().createHotspot("dkTestWIfi","123456789");
         }
     }
 }

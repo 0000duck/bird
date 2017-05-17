@@ -65,7 +65,7 @@
             // 
             this.overallProgressBar.Location = new System.Drawing.Point(3, 98);
             this.overallProgressBar.Name = "overallProgressBar";
-            this.overallProgressBar.Size = new System.Drawing.Size(369, 16);
+            this.overallProgressBar.Size = new System.Drawing.Size(330, 16);
             this.overallProgressBar.TabIndex = 1;
             // 
             // bubbleTime
@@ -86,7 +86,7 @@
             this.lstTransferView.ContextMenuStrip = this.contextMenuStrip1;
             this.lstTransferView.Location = new System.Drawing.Point(3, 3);
             this.lstTransferView.Name = "lstTransferView";
-            this.lstTransferView.Size = new System.Drawing.Size(369, 92);
+            this.lstTransferView.Size = new System.Drawing.Size(327, 92);
             this.lstTransferView.TabIndex = 5;
             this.lstTransferView.UseCompatibleStateImageBehavior = false;
             this.lstTransferView.View = System.Windows.Forms.View.Details;
@@ -99,11 +99,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "File name";
-            this.columnHeader2.Width = 303;
+            this.columnHeader2.Width = 250;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Progress";
+            this.columnHeader3.Width = 71;
             // 
             // FileMessageBubbleSent
             // 
@@ -113,7 +114,7 @@
             this.Controls.Add(this.bubbleTime);
             this.Controls.Add(this.overallProgressBar);
             this.Name = "FileMessageBubbleSent";
-            this.Size = new System.Drawing.Size(375, 134);
+            this.Size = new System.Drawing.Size(333, 134);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -24,7 +24,7 @@ namespace flyBird
             Socket socket = e.socket;
 
 
-            confirmConnectionToConnectedDevice(socket);
+            
 
             new Thread(() =>
             {
@@ -43,23 +43,23 @@ namespace flyBird
         }
 
 
-        private void confirmConnectionToConnectedDevice(Socket socket)
-        {
-            byte[] sendBuffer;
-
-            sendBuffer =
-                Encoding.Default.GetBytes(settings.Default.controlPrefix + Control.Connected.ToString() +
-                                          settings.Default.controlPostfix);
-            try
-            {
-                socket.Send(sendBuffer, 0, sendBuffer.Length, 0);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
+//        private void confirmConnectionToConnectedDevice(Socket socket)
+//        {
+//            byte[] sendBuffer;
+//
+//            sendBuffer =
+//                Encoding.Default.GetBytes(settings.Default.controlPrefix + Control.ConnectedCccccc.ToString() +
+//                                          settings.Default.controlPostfix);
+//            try
+//            {
+//                socket.Send(sendBuffer, 0, sendBuffer.Length, 0);
+//            }
+//            catch (Exception e)
+//            {
+//                Console.WriteLine(e);
+//                throw;
+//            }
+//        }
 
         private void receiveTextMessage(string id, Socket socket)
         {
@@ -70,10 +70,11 @@ namespace flyBird
 
             try
             {
-                if (socket.Connected)
+                if (socket.Connected && recievedBuffer!=null)
 
                 {
-                    int receivedSize = socket.Receive(recievedBuffer, 0, recievedBuffer.Length, 0);
+
+                    int receivedSize = socket.Receive(recievedBuffer, 0, recievedBuffer.Length, 0); //need fixed when forced closed
                     Array.Resize(ref recievedBuffer, receivedSize);
 
                     string receivedText = Encoding.Default.GetString(recievedBuffer);

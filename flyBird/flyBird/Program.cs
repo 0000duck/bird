@@ -20,7 +20,7 @@ namespace flyBird
         [STAThread]
         static void Main(string[] args)
         {
-//            Application.Run(new chatApp());
+
             Application.Run(MainForm.Instance);
         }
     }

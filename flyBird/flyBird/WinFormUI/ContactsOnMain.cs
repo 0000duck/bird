@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using BirdUI1;
+using flyBird.Contacts;
 using flyBird.HotspotAndIP;
 using flyBird.Messages;
 using flyBird.WinFormUI;
 
 namespace flyBird
 {
+
     public partial class ContactsOnMain : UserControl
     {
         //middlecontroller singleton object
@@ -16,35 +18,19 @@ namespace flyBird
 
         public MainForm mainForm = MainForm.Instance;
 
-        public Dictionary<string, Contact> contacts = new Dictionary<string, Contact>();
+        public Dictionary<string, ContactTab> contacts = new Dictionary<string, ContactTab>();
+
+        private static ContactsOnMain _instance;
 
         #region static instance
 
         private ContactsOnMain()
         {
             InitializeComponent();
-            
-       
 
-            setMsgReceivedEvent();
+            setEvents();
         }
 
-        
-
-        private void setMsgReceivedEvent()
-        {
-            middleController.MsgReceived += OnMsgTextReceived;
-        }
-
-        private void OnMsgTextReceived(object sender, TextMessageArgs e)
-        {
-            //selecting the required chatDisplay from contact
-            ChatDisplay cd = contacts[e.msg.ipToken].chatDisplay;
-
-            cd.addReceivedMessageToUI(e.msg);
-        }
-
-        private static ContactsOnMain _instance;
 
         public static ContactsOnMain Instance
         {
@@ -61,20 +47,49 @@ namespace flyBird
 
         #endregion
 
-        private void connectBtn_Click(object sender, EventArgs e)
+        private void setEvents()
         {
-            string token = connectIpTokenText.Text;
-            if (contacts.ContainsKey(token))
-                return;
-
-            ////Connecting////////
-            middleController.connect(token, "");
-            /////////////////////
-
-            //no need this
-//            addContact(token);
+            middleController.MsgReceived += OnMsgTextReceived;
+            ControlHandler.getInstance().ContactUpdate += OnContactUpdate;
+           
         }
 
+        private void OnContactUpdate(object sender, ControlCommandOccuredEventArgs e)
+        {
+            Contact cnt = ContactBuilder.getContactFromReceivedData(e.data);
+            
+            Console.WriteLine("contact update event");
+            Console.WriteLine("id"+e.id+"\nmac: " + cnt.mac + "\nname: " + cnt.name + "\ncurrent ip: " + cnt.currentIp);
+
+            if (contacts.ContainsKey(e.id))
+            {
+                contacts[e.id].updateContact(cnt);
+            }
+            else
+            {
+                Console.WriteLine("Contact id not found for updating..  id: " + e.id);
+                Console.Write("contacts now have are: ");
+
+                foreach (var cn in contacts)
+                {
+                    Console.Write(cn.Key+",");
+                }
+                Console.WriteLine();
+            }
+           
+//            Console.WriteLine("current ip of update comming contact: "+contact.currentIp);
+//            contacts[contact.currentIp].updateContact(contact);
+        }
+
+        private void OnMsgTextReceived(object sender, TextMessageArgs e)
+        {
+            //selecting the required chatDisplay from contact
+            ChatDisplay cd = contacts[e.msg.ipToken].chatDisplay;
+
+            cd.addReceivedMessageToUI(e.msg);
+        }
+
+       
 
         private static int userCount;
 
@@ -87,23 +102,24 @@ namespace flyBird
                 return;
             }
             string name = "User " + userCount++;
-            var contact = new Contact(token, name);
+            var contactTab = new ContactTab(token, name);
 
-            contact.MouseClick += onContactClick;
+            contactTab.MouseClick += onContactClick;
 
-            contacts.Add(token, contact);
+            contacts.Add(token, contactTab);
 
-            contactsPanel.Controls.Add(contact);
+            contactsPanel.Controls.Add(contactTab);
 
-            contact.select();
-            contact.Dock = DockStyle.Top;
+            contactTab.select();
+            contactTab.Dock = DockStyle.Top;
+
         }
 
-        public void removeContact(Contact contact)
+        public void removeContact(ContactTab contact)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action<Contact>(removeContact), contact);
+                Invoke(new Action<ContactTab>(removeContact), contact);
                 return;
             }
             contactsPanel.Controls.Remove(contact);
@@ -113,7 +129,7 @@ namespace flyBird
             contact.Dispose();
         }
 
-        private Contact previousSelected;
+        private ContactTab previousSelected;
 
 
         private Color buttonHoverColor = AppTheme.ButtonHoverColor;
@@ -121,7 +137,7 @@ namespace flyBird
 
         public void onContactClick(object sender, EventArgs e)
         {
-            var con = ((Contact) sender);
+            var con = ((ContactTab) sender);
 
             if (previousSelected == null)
             {
@@ -135,24 +151,8 @@ namespace flyBird
             previousSelected = con;
         }
 
-        private void connectBtn_MouseHover(object sender, EventArgs e)
-        {
-            connectBtn.BackColor = buttonHoverColor;
-        }
 
-        private void connectBtn_MouseLeave(object sender, EventArgs e)
-        {
-            connectBtn.BackColor = buttonNormalColor;
-        }
 
-        private void connectIpTokenText_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                connectBtn_Click(sender, e);
-            }
-        }
 
         public void removeContactByToken(string token)
         {
@@ -165,12 +165,15 @@ namespace flyBird
 
         private void myIpLabel_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
+        }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            new NewChat(this,middleController).Show();
         }
     }
 }

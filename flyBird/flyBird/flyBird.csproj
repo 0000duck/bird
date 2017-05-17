@@ -63,6 +63,9 @@
       <DependentUpon>AudioRecorder.cs</DependentUpon>
     </Compile>
     <Compile Include="Audio\Recorder.cs" />
+    <Compile Include="Contacts\Contact.cs" />
+    <Compile Include="Contacts\ContactBuilder.cs" />
+    <Compile Include="Contacts\ContactsStore.cs" />
     <Compile Include="ControlMessage\ControlMessage.cs" />
     <Compile Include="FileShare\AcceptListener.cs" />
     <Compile Include="FileShare\FileShareMiddleController.cs" />
@@ -82,6 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="StorageHandler\StorageHandler.cs" />
     <Compile Include="TextShare\ClientPart.cs" />
     <Compile Include="ControlMessage\ControlHandler.cs" />
     <Compile Include="ControlMessage\Encoder.cs" />
@@ -111,11 +115,11 @@
     <Compile Include="WinFormUI\ChatDisplay.Designer.cs">
       <DependentUpon>ChatDisplay.cs</DependentUpon>
     </Compile>
-    <Compile Include="WinFormUI\Contact.cs">
+    <Compile Include="WinFormUI\ContactTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinFormUI\Contact.Designer.cs">
-      <DependentUpon>Contact.cs</DependentUpon>
+    <Compile Include="WinFormUI\ContactTab.Designer.cs">
+      <DependentUpon>ContactTab.cs</DependentUpon>
     </Compile>
     <Compile Include="WinFormUI\ContactsOnMain.cs">
       <SubType>UserControl</SubType>
@@ -147,16 +151,18 @@
     <Compile Include="WinFormUI\mainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WinFormUI\NewChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinFormUI\NewChat.Designer.cs">
+      <DependentUpon>NewChat.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinFormUI\SentMessageUIEventArgs.cs" />
-    <Compile Include="WinFormUI\Settings.cs">
+    <Compile Include="WinFormUI\UserSettings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WinFormUI\Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI_1\chatApp.cs" />
-    <Compile Include="UI_1\chatApp.Designer.cs">
-      <DependentUpon>chatApp.cs</DependentUpon>
+    <Compile Include="WinFormUI\UserSettings.Designer.cs">
+      <DependentUpon>UserSettings.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -183,8 +189,8 @@
     <EmbeddedResource Include="WinFormUI\ChatDisplay.resx">
       <DependentUpon>ChatDisplay.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinFormUI\Contact.resx">
-      <DependentUpon>Contact.cs</DependentUpon>
+    <EmbeddedResource Include="WinFormUI\ContactTab.resx">
+      <DependentUpon>ContactTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinFormUI\contactsOnMain.resx">
       <DependentUpon>ContactsOnMain.cs</DependentUpon>
@@ -201,11 +207,11 @@
     <EmbeddedResource Include="WinFormUI\mainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WinFormUI\Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <EmbeddedResource Include="WinFormUI\NewChat.resx">
+      <DependentUpon>NewChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_1\chatApp.resx">
-      <DependentUpon>chatApp.cs</DependentUpon>
+    <EmbeddedResource Include="WinFormUI\UserSettings.resx">
+      <DependentUpon>UserSettings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -233,10 +239,85 @@
     <None Include="Resources\Microphone.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\big-bouncing-music-speakeranimated-gif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blinkingRed.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blinkingSignalGif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\48c99328741557.55cfd3c8be389.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\big-bouncing-music-speakeranimated-gif.gif" />
+    <None Include="Resources\connectButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\startServerButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopServerButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connectButton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopServerButton1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopServerButton2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blinkingSignalGif1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dpFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dpFrameNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noHotspot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yesHotspot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chatLeadOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chatLeadOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chatLeading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chatLeadOnG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noHotspotWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yesHotspotWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connectBl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newChat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newChatRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newChatRedd.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

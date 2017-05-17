@@ -5,8 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using flyBird.Contacts;
 using flyBird.Messages;
 using flyBird.TextShare;
 
@@ -96,7 +98,14 @@ namespace flyBird
             reciever.TextMessageReceived += OnTextMsgReceived;
 
             fileShareController.DisconnectedTransferClient += OnDisconnected;
+
+//            ControlHandler.getInstance().Connected += OnConnecttedSendContact;
         }
+
+//        private void OnConnecttedSendContact(object o, ControlCommandOccuredEventArgs e)
+//        {
+//            ContactsStore.getInstance().sendMyContactToOne(e.id);
+//        }
 
         private void OnDisconnected(object o, EventArgs e)
         {
@@ -110,6 +119,8 @@ namespace flyBird
                 return;
             }
             uiMainForm.contactsPannel.addContact(e.id);
+            Thread.Sleep(400);
+            ContactsStore.getInstance().sendMyContactToOne(e.id); //sending contact update
         }
 
         private void OnServerAccepted(object o, SocketAddedEventArgs e)
@@ -120,6 +131,8 @@ namespace flyBird
                 return;
             }
             uiMainForm.contactsPannel.addContact(e.id);
+            Thread.Sleep(400);
+            ContactsStore.getInstance().sendMyContactToOne(e.id);
         }
 
 
@@ -129,9 +142,9 @@ namespace flyBird
 //            clientPart.connect(getIpString(ipToken), commonPort);
 //
 //            fileShareController.connect(ipToken, filePort); //fs 
-            
+
             //using common port
-            clientPart.connect(getIpString(ipToken),"3661");
+            clientPart.connect(getIpString(ipToken), "3661");
 
             fileShareController.connect(ipToken, "3662"); //fs
         }
@@ -224,18 +237,16 @@ namespace flyBird
 
         public void closeAllSockets()
         {
-           var dic= socketStore.SocketDic.ToList();
+            var dic = socketStore.SocketDic.ToList();
 //            foreach (var socketD in socketStore.SocketDic)
-                for (int i=0;i< socketStore.SocketDic.Count;i++)
+            for (int i = 0; i < socketStore.SocketDic.Count; i++)
             {
-               ((Socket) dic[i].Value).Close();
-               
+                ((Socket) dic[i].Value).Close();
             }
             if (serverPart.isServerRunning)
             {
                 stopServer();
             }
-            
         }
     }
 }

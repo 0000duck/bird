@@ -39,6 +39,7 @@
             this.overallProgressBar = new MetroFramework.Controls.MetroProgressBar();
             this.bubbleTime = new System.Windows.Forms.Label();
             this.outputButton = new MetroFramework.Controls.MetroButton();
+            this.fileOpenBtn = new MetroFramework.Controls.MetroButton();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             this.lstTransfers.ContextMenuStrip = this.contextMenuStrip1;
             this.lstTransfers.Location = new System.Drawing.Point(3, 3);
             this.lstTransfers.Name = "lstTransfers";
-            this.lstTransfers.Size = new System.Drawing.Size(369, 92);
+            this.lstTransfers.Size = new System.Drawing.Size(327, 92);
             this.lstTransfers.TabIndex = 0;
             this.lstTransfers.UseCompatibleStateImageBehavior = false;
             this.lstTransfers.View = System.Windows.Forms.View.Details;
@@ -96,7 +97,7 @@
             // 
             this.overallProgressBar.Location = new System.Drawing.Point(3, 98);
             this.overallProgressBar.Name = "overallProgressBar";
-            this.overallProgressBar.Size = new System.Drawing.Size(369, 16);
+            this.overallProgressBar.Size = new System.Drawing.Size(330, 16);
             this.overallProgressBar.TabIndex = 1;
             // 
             // bubbleTime
@@ -110,7 +111,7 @@
             // 
             // outputButton
             // 
-            this.outputButton.Location = new System.Drawing.Point(295, 117);
+            this.outputButton.Location = new System.Drawing.Point(177, 116);
             this.outputButton.Name = "outputButton";
             this.outputButton.Size = new System.Drawing.Size(75, 15);
             this.outputButton.TabIndex = 6;
@@ -118,16 +119,27 @@
             this.outputButton.UseSelectable = true;
             this.outputButton.Click += new System.EventHandler(this.outputButton_Click);
             // 
+            // fileOpenBtn
+            // 
+            this.fileOpenBtn.Location = new System.Drawing.Point(258, 116);
+            this.fileOpenBtn.Name = "fileOpenBtn";
+            this.fileOpenBtn.Size = new System.Drawing.Size(75, 15);
+            this.fileOpenBtn.TabIndex = 7;
+            this.fileOpenBtn.Text = "Open file";
+            this.fileOpenBtn.UseSelectable = true;
+            this.fileOpenBtn.Click += new System.EventHandler(this.fileOpenBtn_Click);
+            // 
             // FileMessageBubble
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.fileOpenBtn);
             this.Controls.Add(this.outputButton);
             this.Controls.Add(this.bubbleTime);
             this.Controls.Add(this.overallProgressBar);
             this.Controls.Add(this.lstTransfers);
             this.Name = "FileMessageBubble";
-            this.Size = new System.Drawing.Size(375, 134);
+            this.Size = new System.Drawing.Size(333, 134);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -146,5 +158,6 @@
         private System.Windows.Forms.Label bubbleTime;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private MetroFramework.Controls.MetroButton outputButton;
+        private MetroFramework.Controls.MetroButton fileOpenBtn;
     }
 }

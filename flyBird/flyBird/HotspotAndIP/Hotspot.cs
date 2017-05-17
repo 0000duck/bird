@@ -30,29 +30,39 @@ namespace flyBird.HotspotAndIP
 
         #endregion
 
-        public void createHotspot(string ssid, string key,bool status) 
-        { 
-            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe"); 
-            processStartInfo.RedirectStandardInput = true; 
-            processStartInfo.RedirectStandardOutput = true; 
-            processStartInfo.CreateNoWindow = true; 
-            processStartInfo.UseShellExecute = false; 
-            Process process = Process.Start(processStartInfo); 
- 
-            if (process != null) 
-            { 
-                if (status) 
-                { 
-                    process.StandardInput.WriteLine("netsh wlan set hostednetwork mode=allow ssid=" + ssid + " key=" + key); 
-                    process.StandardInput.WriteLine("netsh wlan start hosted network"); 
-                    process.StandardInput.Close(); 
-                } 
-                else 
-                { 
-                    process.StandardInput.WriteLine("netsh wlan stop hostednetwork"); 
-                    process.StandardInput.Close(); 
-                } 
-            } 
+        private Process process;
+
+        private void setCmd()
+        {
+            ProcessStartInfo processStartInfo = new ProcessStartInfo("cmd.exe");
+            processStartInfo.RedirectStandardInput = true;
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.CreateNoWindow = true;
+            processStartInfo.UseShellExecute = false;
+
+            process = Process.Start(processStartInfo);
+        }
+
+        public static bool Running { private set; get; }
+
+        public void createHotspot(string ssid, string key)
+        {
+            setCmd();
+            if (process != null)
+            {
+                process.StandardInput.WriteLine("netsh wlan set hostednetwork mode=allow ssid=" + ssid + " key=" + key);
+                process.StandardInput.WriteLine("netsh wlan start hosted network");
+                process.StandardInput.Close();
+                Running = true;
+            }
+        }
+
+        public void stopHotspot()
+        {
+            setCmd();
+            process.StandardInput.WriteLine("netsh wlan stop hostednetwork");
+            process.StandardInput.Close();
+            Running = false;
         }
     }
 }

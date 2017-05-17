@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,11 @@ using BirdUI1;
 
 namespace flyBird.WinFormUI
 {
-    public partial class Contact : UserControl
+    public delegate void ContactUpdateEventHandler(Contact contact);
+
+    public delegate void ContactPicUpdateEventHandler(string path);
+
+    public partial class ContactTab : UserControl
     {
         public string token;
         public ChatDisplay chatDisplay;
@@ -30,28 +35,51 @@ namespace flyBird.WinFormUI
 
         public bool selected = false;
 
+        private string mac;
 
 
-        public Contact(string token)
+        public ContactTab(string token)
         {
             InitializeComponent();
             tokenText.Text = token;
         }
 
-        public Contact(string token, string name)
+        public void updateContact(Contact contact)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new ContactUpdateEventHandler(updateContact), contact);
+                return;
+            }
+            this.mac = contact.mac;
+            this.nameText.Text = contact.name;
+            this.tokenText.Text = contact.currentIp;
+        }
+
+        public void updateContactPic(string path)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new ContactPicUpdateEventHandler(updateContactPic), path);
+                return;
+            }
+            if (File.Exists(path))
+            {
+                contactPic.Image = Image.FromFile(path);
+            }
+        }
+
+        public ContactTab(string token, string name)
         {
             InitializeComponent();
             nameText.Text = name;
             tokenText.Text = token;
-            chatDisplay = new ChatDisplay(token,MiddleController.getInstance().fileShareController);
+            chatDisplay = new ChatDisplay(token, MiddleController.getInstance().fileShareController);
 
             //add previous msges or add previous chat display
 
             this.token = token;
         }
-
-        
-       
 
 
         public void select()
@@ -61,7 +89,7 @@ namespace flyBird.WinFormUI
             bottumPanel.BackColor = bottumSelectColor;
 
             mainForm.addChatDisplayAndBrigFront(chatDisplay);
-            ContactsOnMain.Instance.onContactClick(this,EventArgs.Empty);
+            ContactsOnMain.Instance.onContactClick(this, EventArgs.Empty);
         }
 
         public void unselect()
@@ -93,7 +121,7 @@ namespace flyBird.WinFormUI
             //SaveFileDialog chat display
 
             //disconnect
-            contactsPanel.removeContact((Contact)this);
+            contactsPanel.removeContact((ContactTab) this);
 
             MiddleController.getInstance().disconnect(token);
         }

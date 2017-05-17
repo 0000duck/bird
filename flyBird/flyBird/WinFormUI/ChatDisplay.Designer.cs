@@ -57,13 +57,13 @@ namespace BirdUI1
             this.panel2.Controls.Add(this.workSpace);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(635, 459);
+            this.panel2.Size = new System.Drawing.Size(590, 459);
             this.panel2.TabIndex = 1;
             // 
             // userTokenText
             // 
             this.userTokenText.AutoSize = true;
-            this.userTokenText.Location = new System.Drawing.Point(559, 0);
+            this.userTokenText.Location = new System.Drawing.Point(505, 0);
             this.userTokenText.Name = "userTokenText";
             this.userTokenText.Size = new System.Drawing.Size(34, 13);
             this.userTokenText.TabIndex = 9;
@@ -74,16 +74,16 @@ namespace BirdUI1
             this.refPanel2.Enabled = false;
             this.refPanel2.Location = new System.Drawing.Point(15, 13);
             this.refPanel2.Name = "refPanel2";
-            this.refPanel2.Size = new System.Drawing.Size(375, 55);
+            this.refPanel2.Size = new System.Drawing.Size(333, 55);
             this.refPanel2.TabIndex = 8;
             // 
             // refPanel1
             // 
             this.refPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.refPanel1.Enabled = false;
-            this.refPanel1.Location = new System.Drawing.Point(240, 13);
+            this.refPanel1.Location = new System.Drawing.Point(237, 13);
             this.refPanel1.Name = "refPanel1";
-            this.refPanel1.Size = new System.Drawing.Size(375, 55);
+            this.refPanel1.Size = new System.Drawing.Size(333, 55);
             this.refPanel1.TabIndex = 7;
             // 
             // workSpace
@@ -103,7 +103,7 @@ namespace BirdUI1
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 459);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(635, 66);
+            this.panel3.Size = new System.Drawing.Size(590, 66);
             this.panel3.TabIndex = 0;
             // 
             // recordBtn
@@ -140,7 +140,7 @@ namespace BirdUI1
             this.sendBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sendBtn.Image = global::flyBird.Properties.Resources.sendB;
-            this.sendBtn.Location = new System.Drawing.Point(574, 9);
+            this.sendBtn.Location = new System.Drawing.Point(516, 9);
             this.sendBtn.Name = "sendBtn";
             this.sendBtn.Size = new System.Drawing.Size(48, 48);
             this.sendBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -159,7 +159,7 @@ namespace BirdUI1
             // 
             // 
             this.sendingTextBox.CustomButton.Image = null;
-            this.sendingTextBox.CustomButton.Location = new System.Drawing.Point(386, 2);
+            this.sendingTextBox.CustomButton.Location = new System.Drawing.Point(337, 2);
             this.sendingTextBox.CustomButton.Name = "";
             this.sendingTextBox.CustomButton.Size = new System.Drawing.Size(55, 55);
             this.sendingTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -178,7 +178,7 @@ namespace BirdUI1
             this.sendingTextBox.SelectionLength = 0;
             this.sendingTextBox.SelectionStart = 0;
             this.sendingTextBox.ShortcutsEnabled = true;
-            this.sendingTextBox.Size = new System.Drawing.Size(444, 60);
+            this.sendingTextBox.Size = new System.Drawing.Size(393, 60);
             this.sendingTextBox.TabIndex = 0;
             this.sendingTextBox.UseSelectable = true;
             this.sendingTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -189,10 +189,11 @@ namespace BirdUI1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Name = "ChatDisplay";
-            this.Size = new System.Drawing.Size(635, 525);
+            this.Size = new System.Drawing.Size(590, 525);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);

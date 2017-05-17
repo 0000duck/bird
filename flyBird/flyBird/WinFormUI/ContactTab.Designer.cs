@@ -1,6 +1,6 @@
 ﻿namespace flyBird.WinFormUI
 {
-    partial class Contact
+    partial class ContactTab
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contact));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactTab));
             this.contactPanelBackgrount = new System.Windows.Forms.Panel();
+            this.bottumPanel = new System.Windows.Forms.Panel();
             this.tokenText = new System.Windows.Forms.Label();
             this.nameText = new System.Windows.Forms.Label();
             this.contactPic = new System.Windows.Forms.PictureBox();
-            this.bottumPanel = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.disconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,11 +52,20 @@
             this.contactPanelBackgrount.Controls.Add(this.contactPic);
             this.contactPanelBackgrount.Location = new System.Drawing.Point(0, 0);
             this.contactPanelBackgrount.Name = "contactPanelBackgrount";
-            this.contactPanelBackgrount.Size = new System.Drawing.Size(267, 63);
+            this.contactPanelBackgrount.Size = new System.Drawing.Size(227, 60);
             this.contactPanelBackgrount.TabIndex = 0;
             this.contactPanelBackgrount.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Contact_MouseClick);
             this.contactPanelBackgrount.MouseLeave += new System.EventHandler(this.Contact_MouseLeave);
             this.contactPanelBackgrount.MouseHover += new System.EventHandler(this.Contact_MouseHover);
+            // 
+            // bottumPanel
+            // 
+            this.bottumPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(151)))), ((int)(((byte)(181)))));
+            this.bottumPanel.Location = new System.Drawing.Point(222, 0);
+            this.bottumPanel.Name = "bottumPanel";
+            this.bottumPanel.Size = new System.Drawing.Size(42, 63);
+            this.bottumPanel.TabIndex = 1;
+            this.bottumPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Contact_MouseClick);
             // 
             // tokenText
             // 
@@ -85,7 +94,7 @@
             // contactPic
             // 
             this.contactPic.Image = ((System.Drawing.Image)(resources.GetObject("contactPic.Image")));
-            this.contactPic.Location = new System.Drawing.Point(4, 8);
+            this.contactPic.Location = new System.Drawing.Point(4, 6);
             this.contactPic.Name = "contactPic";
             this.contactPic.Size = new System.Drawing.Size(53, 50);
             this.contactPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -94,15 +103,6 @@
             this.contactPic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Contact_MouseClick);
             this.contactPic.MouseLeave += new System.EventHandler(this.Contact_MouseLeave);
             this.contactPic.MouseHover += new System.EventHandler(this.Contact_MouseHover);
-            // 
-            // bottumPanel
-            // 
-            this.bottumPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(151)))), ((int)(((byte)(181)))));
-            this.bottumPanel.Location = new System.Drawing.Point(225, 0);
-            this.bottumPanel.Name = "bottumPanel";
-            this.bottumPanel.Size = new System.Drawing.Size(42, 63);
-            this.bottumPanel.TabIndex = 1;
-            this.bottumPanel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Contact_MouseClick);
             // 
             // contextMenuStrip1
             // 
@@ -126,14 +126,14 @@
             this.informationToolStripMenuItem.Text = "Information";
             this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
             // 
-            // Contact
+            // ContactTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.contactPanelBackgrount);
-            this.Name = "Contact";
-            this.Size = new System.Drawing.Size(267, 66);
+            this.Name = "ContactTab";
+            this.Size = new System.Drawing.Size(227, 60);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Contact_MouseClick);
             this.contactPanelBackgrount.ResumeLayout(false);
             this.contactPanelBackgrount.PerformLayout();

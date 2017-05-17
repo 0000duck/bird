@@ -62,7 +62,7 @@
             // 
             this.overallProgressBar.Location = new System.Drawing.Point(3, 3);
             this.overallProgressBar.Name = "overallProgressBar";
-            this.overallProgressBar.Size = new System.Drawing.Size(321, 42);
+            this.overallProgressBar.Size = new System.Drawing.Size(279, 42);
             this.overallProgressBar.TabIndex = 1;
             // 
             // bubbleTime
@@ -76,7 +76,7 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(330, 3);
+            this.confirmButton.Location = new System.Drawing.Point(288, 3);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(42, 42);
             this.confirmButton.TabIndex = 5;
@@ -92,7 +92,7 @@
             this.Controls.Add(this.bubbleTime);
             this.Controls.Add(this.overallProgressBar);
             this.Name = "AudioMessageBubble";
-            this.Size = new System.Drawing.Size(375, 69);
+            this.Size = new System.Drawing.Size(333, 69);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

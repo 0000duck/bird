@@ -8,22 +8,14 @@ using System.Threading.Tasks;
 
 namespace flyBird
 {
-    public enum Control
-    {
-        Connected,
-        Sendmemac,
-        Sendingmac,
-        FileComming,
-        FileConfiremed,
-        FileRejected,
-        AudioComming
-    }
+
 
     public class ControlCommandOccuredEventArgs
     {
         public string id { get; set; }
         public Socket socket { get; set; }
         public Control control { get; set; }
+        public string data { get; set; }
     }
 
     public class Encoder
@@ -61,16 +53,19 @@ namespace flyBird
             {
 
                isControl = text.Substring(0, prefix.Length) == prefix &&
-                                 text.Substring(text.Length - postfix.Length, postfix.Length) == postfix;
+                                 text.Substring(18, postfix.Length) == postfix;
             }
 
             if (isControl)
             {
-                string controlMsg = text.Substring(prefix.Length, text.Length - prefix.Length - postfix.Length);
+                string controlMsg = text.Substring(prefix.Length, 15);
+                string data = text.Substring(20, text.Length - 20);
 
                 Enum.TryParse(controlMsg, out Control control);
 
-                OnControlComamndOccured(id, socket,control);
+                OnControlComamndOccured(id, socket,control,data);
+
+                Console.WriteLine("control command="+controlMsg+"\ndata="+data);
 
                 return "";
                 
@@ -82,12 +77,12 @@ namespace flyBird
         }
 
 
-        public virtual void OnControlComamndOccured(string _id, Socket _socket, Control _control)
+        public virtual void OnControlComamndOccured(string _id, Socket _socket, Control _control,string data_)
         {
             if (ControlCommandOccured != null)
             {
                 ControlCommandOccured(this,
-                    new ControlCommandOccuredEventArgs() {socket = _socket, id = _id, control = _control});
+                    new ControlCommandOccuredEventArgs() {socket = _socket, id = _id, control = _control,data=data_});
             }
         }
 

@@ -53,13 +53,18 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Audio\AudioRecorderTests.cs" />
+    <Compile Include="Contacts\ContactBuilderTests.cs" />
+    <Compile Include="Contacts\ContactsStoreTests.cs" />
+    <Compile Include="ControlMessage\ControlMessageTests.cs" />
     <Compile Include="EncoderTests.cs" />
     <Compile Include="FileShare\FileShareMiddleControllerTests.cs" />
     <Compile Include="HotspotAndIP\HotspotTests.cs" />
     <Compile Include="HotspotAndIP\IpDetailsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StorageHandler\StorageHandlerTests.cs" />
     <Compile Include="WinFormUI\FileMessageBubbleTests.cs" />
     <Compile Include="WinFormUI\MainFormTests.cs" />
+    <Compile Include="WinFormUI\SettingsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\flyBird\flyBird.csproj">

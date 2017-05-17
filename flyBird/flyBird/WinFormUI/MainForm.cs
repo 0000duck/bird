@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using BirdUI1;
+using flyBird.Contacts;
+using flyBird.HotspotAndIP;
 using flyBird.WinFormUI;
 
 
@@ -16,12 +19,38 @@ namespace flyBird
 {
     public partial class MainForm : Form
     {
+        private Contact myProfile;
         private MainForm()
         {
             InitializeComponent();
+            serverRunningPic.Visible = false;
             setDependentObjects();
+            
             setMyIp();
-           
+            myIpLabel.Focus();
+
+
+            myProfile = ContactsStore.getInstance().getMyProfile();
+            setMyProfileDetails();
+
+        }
+
+        public void setMyProfileDetails()
+        {
+            myProfile = ContactsStore.getInstance().getMyProfile();
+            if (File.Exists(myProfile.displayProfile))
+            {
+                userPic.Image = Image.FromFile(myProfile.displayProfile);
+            }
+            
+            userNameLabel.Text = myProfile.name;
+
+            userNameLabel.Left= 795 - userNameLabel.Size.Width;
+            userPic.Left = 795 - userNameLabel.Size.Width - 36-7;
+
+            serverRunningPic.Left = userPic.Left - (36 + 14);
+
+
         }
 
         #region static instance
@@ -66,7 +95,7 @@ namespace flyBird
 
         public ContactsOnMain contactsPannel;
         public ChatDisplay currentChatDisplay;
-        private Settings settings;
+        private UserSettings settings;
         public List<ChatDisplay> chatDisplays = new List<ChatDisplay>();
 
 
@@ -79,7 +108,7 @@ namespace flyBird
         {
             backPic.Visible = false;
             _instance = this;
-            settings = new Settings();
+            settings = new UserSettings(this);
 
 
             contactsPannel = ContactsOnMain.Instance;
@@ -90,13 +119,12 @@ namespace flyBird
             contactsPannel.Dock = DockStyle.Left;
 
 
-            serverBtn.BackColor = serverBtnNormalColor;
         }
 
 
         private bool hasSettingsAdded = false;
 
-        private void backPic_Click(object sender, EventArgs e)
+        public void backPic_Click(object sender, EventArgs e)
         {
             if (hasSettingsAdded)
             {
@@ -216,25 +244,6 @@ namespace flyBird
 
 
 
-        private void serverBtn_Click_1(object sender, EventArgs e)
-        {
-            if (middleController.serverPart.isServerRunning)
-            {
-
-                //stop server
-                middleController.stopServer();
-
-                serverBtn.Text = "Let others connect";
-                serverBtn.BackColor = serverBtnNormalColor;
-            }
-            else
-            {
-                //start server
-                middleController.startServer("");
-                serverBtn.Text = "Stop accepting others";
-                serverBtn.BackColor = serverBtnStopColor;
-            }
-        }
 
         private void refrshIpButton_Click(object sender, EventArgs e)
         {
@@ -244,6 +253,90 @@ namespace flyBird
         private void setMyIp()
         {
             myIpLabel.Text = IpDetails.getInstance().getMyLocalIp();
+        }
+
+        private void serverBtn_Click(object sender, EventArgs e)
+        {
+            if (middleController.serverPart.isServerRunning)
+            {
+
+                //stop server
+                middleController.stopServer();
+
+                serverRunningPic.Visible = false;
+            }
+            else
+            {
+                //start server
+                middleController.startServer("");
+                serverRunningPic.Visible = true;
+            }
+        }
+
+        private void myIpLabel_Click(object sender, EventArgs e)
+        {
+            setMyIp();
+        }
+
+        private void serverBtnPic_Click(object sender, EventArgs e)
+        {
+            if (middleController.serverPart.isServerRunning)
+            {
+
+                //stop server
+                middleController.stopServer();
+
+                serverRunningPic.Visible = false;
+
+                serverBtnPic.Image = Properties.Resources.chatLeadOff;
+            }
+            else
+            {
+                //start server
+                middleController.startServer("");
+                serverRunningPic.Visible = true;
+                serverBtnPic.Image = Properties.Resources.chatLeadOnG;
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void userNameLabel_Click(object sender, EventArgs e)
+        {
+            settings_Click(sender,e);
+        }
+
+        private void userPic_Click(object sender, EventArgs e)
+        {
+            settings_Click(sender, e);
+        }
+
+        private bool hotspotRunning;
+        private void hotspotBtn_Click(object sender, EventArgs e)
+        {
+            if (hotspotRunning)
+            {
+                //stop now
+                Hotspot.getInstance().stopHotspot();
+                hotspotBtn.Image = Properties.Resources.noHotspotWhite;
+                hotspotRunning = false;
+
+            }
+            else
+            {
+                //start now
+                Hotspot.getInstance().createHotspot("name","password");
+                hotspotBtn.Image = Properties.Resources.yesHotspotWhite;
+                hotspotRunning = true;
+            }
+        }
+
+        private void serverRunningPic_Click(object sender, EventArgs e)
+        {
+
         }
 
         /// Dragable tab for form

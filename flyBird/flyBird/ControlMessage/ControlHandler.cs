@@ -35,8 +35,12 @@ namespace flyBird
         public event EventHandler<ControlCommandOccuredEventArgs> FileConfirmed;
 
         public event EventHandler<ControlCommandOccuredEventArgs> FileRejected;
-        
+
         public event EventHandler<ControlCommandOccuredEventArgs> AudioComming;
+
+        public event EventHandler<ControlCommandOccuredEventArgs> ContactUpdate;
+
+        public event EventHandler<ControlCommandOccuredEventArgs> Connected;
 
         public void OnControlOccured(object sender, ControlCommandOccuredEventArgs e)
         {
@@ -50,30 +54,38 @@ namespace flyBird
 
             switch (typeOfControl)
             {
-                case Control.Connected:
+                case Control.ConnectedCccccc:
                     connectedControl(e);
                     break;
-                case Control.Sendmemac:
+                case Control.SendmemacCccccc:
                     sendMacControl(e);
                     break;
-                case Control.Sendingmac:
+                case Control.SendingmacCcccc:
                     macReceivedControl(e);
                     break;
-                case Control.FileComming:
+                case Control.FileCommingCccc:
                     fileComming(e);
                     break;
-                case Control.FileConfiremed:
+                case Control.FileConfiremedC:
                     fileConfiremed(e);
                     break;
-                case Control.FileRejected:
+                case Control.FileRejectedCcc:
                     fileRejected(e);
                     break;
-                case Control.AudioComming:
+                case Control.AudioCommingCcc:
                     audioComming(e);
+                    break;
+                case Control.ContactUpdateCc:
+                    updateContact(e);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void updateContact(ControlCommandOccuredEventArgs e)
+        {
+            if (ContactUpdate != null) ContactUpdate(this, e);
         }
 
         private void audioComming(ControlCommandOccuredEventArgs e)
@@ -110,8 +122,8 @@ namespace flyBird
 
         private void connectedControl(ControlCommandOccuredEventArgs e)
         {
-            EndPoint ip = e.socket.RemoteEndPoint;
-            //im connected to this ip
+            if (Connected != null) Connected(this, e);
+            
         }
     }
 }

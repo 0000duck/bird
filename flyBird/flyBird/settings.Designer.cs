@@ -106,5 +106,17 @@ namespace flyBird {
                 this["audioInPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Contacts")]
+        public string contactPictures {
+            get {
+                return ((string)(this["contactPictures"]));
+            }
+            set {
+                this["contactPictures"] = value;
+            }
+        }
     }
 }
