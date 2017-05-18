@@ -319,6 +319,10 @@ namespace BirdUI1
 
         private void sendFileBtn_Click(object sender, EventArgs e)
         {
+            if (MiddleController.getInstance().fileShareController.isTransactionGoing())
+            {
+                return;
+            }
             using (OpenFileDialog o = new OpenFileDialog())
             {
                 o.Filter = "All Files (*.*)|*.*";
@@ -346,7 +350,7 @@ namespace BirdUI1
 
         public void OnAudioSendButtonClicked(string file)
         {
-
+           
 
             controlMessage.sendAudioCommingSignal(ipTokenInChat);
             //            Thread.Sleep(500);
@@ -380,6 +384,11 @@ namespace BirdUI1
 
         private void recordBtn_Click(object sender, EventArgs e)
         {
+            
+            if (MiddleController.getInstance().fileShareController.isTransactionGoing())
+            {
+                return;
+            }
             new AudioRecorder(this).Visible = true;
         }
     }

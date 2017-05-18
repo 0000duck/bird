@@ -156,20 +156,29 @@ namespace flyBird.WinFormUI
                 Invoke(new Action<TransferQueue>(progressSet), queue);
                 return;
             }
-            if (lstTransfers.Items != null)
+            try
             {
-                int x = queue.Progress;
-
-                lstTransfers.Items[queue.ID.ToString()].SubItems[2].Text = x + "%";
-                int overallProgress = fsmiddleController.getOverallProgress();
-                showOverallProgress(overallProgress);
-                if (overallProgress == 100)
+                if (lstTransfers.Items != null)
                 {
-                    Console.WriteLine("complete...");
+                    int x = queue.Progress;
 
-                    unsetControllerSubscriptions(fsmiddleController);
+                    lstTransfers.Items[queue.ID.ToString()].SubItems[2].Text = x + "%";
+                    int overallProgress = fsmiddleController.getOverallProgress();
+                    showOverallProgress(overallProgress);
+                    if (overallProgress == 100)
+                    {
+                        Console.WriteLine("complete...");
+
+                        unsetControllerSubscriptions(fsmiddleController);
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+ 
         }
 
         private void showOverallProgress(int value)

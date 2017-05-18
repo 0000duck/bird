@@ -88,6 +88,7 @@ namespace flyBird
 
         public bool serverRunning { private set; get; }
 
+        public bool transactionGoing=false;
         #endregion
 
         #region privateFunctions
@@ -99,6 +100,7 @@ namespace flyBird
 
         private void transferClient_Queued_(object sender, TransferQueue queue)
         {
+            transactionGoing = true;
             queueList.Add(queue);
 
             if (queue.Type == QueueType.Download)
@@ -133,15 +135,18 @@ namespace flyBird
             Console.WriteLine("trans complete in fsc");
             System.Media.SystemSounds.Asterisk.Play();
 
+            transactionGoing = false;
+
             OnCompletedTransferClient();
         }
 
         private void transferClient_Completed_2(object sender, TransferQueue queue)
         {
             Console.WriteLine("trans complete in fsc 2");
+
         }
 
-        private void setDefaultSaveDirectory()
+        public void setDefaultSaveDirectory()
         {
 //            outputFolder = "Transfers";
             outputFolder = settings.Default.outputFolder;
@@ -156,6 +161,17 @@ namespace flyBird
             if (!Directory.Exists(audioMessageFolder))
             {
                 Directory.CreateDirectory(audioMessageFolder);
+
+            }
+        }
+
+        public void setupTempOutputFolder(string tempOutputFolder)
+        {
+            outputFolder = tempOutputFolder;
+
+            if (!Directory.Exists(outputFolder))
+            {
+                Directory.CreateDirectory(outputFolder);
 
             }
         }
@@ -330,6 +346,16 @@ namespace flyBird
                 transferManager.Close();
                 transferManager = null;
             }
+        }
+
+        public bool isTransactionGoing()
+        {
+            int progressOfRunnigQ = MiddleController.getInstance().fileShareController.getOverallProgress();
+            if (progressOfRunnigQ > 0 && progressOfRunnigQ != 100)
+            {
+                return true;
+            }
+            return false;
         }
 
         public int getProgressOf(TransferQueue queue)

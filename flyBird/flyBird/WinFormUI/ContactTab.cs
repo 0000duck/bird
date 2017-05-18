@@ -56,17 +56,21 @@ namespace flyBird.WinFormUI
             this.tokenText.Text = contact.currentIp;
         }
 
-        public void updateContactPic(string path)
+        public void updateContactPic()
         {
             if (InvokeRequired)
             {
-                Invoke(new ContactPicUpdateEventHandler(updateContactPic), path);
+                Invoke(new Action(updateContactPic));
                 return;
             }
-            if (File.Exists(path))
+
+            string pathWithMac =settings.Default.outputFolder+"\\"+ mac + ".jpg";
+
+            if (File.Exists(pathWithMac))
             {
-                contactPic.Image = Image.FromFile(path);
+                contactPic.Image = Image.FromFile(pathWithMac);
             }
+           
         }
 
         public ContactTab(string token, string name)

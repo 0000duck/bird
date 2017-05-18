@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using flyBird.Contacts;
+using flyBird.Encryptor;
 using flyBird.Messages;
 using flyBird.TextShare;
 
@@ -119,8 +120,8 @@ namespace flyBird
                 return;
             }
             uiMainForm.contactsPannel.addContact(e.id);
-            Thread.Sleep(400);
-            ContactsStore.getInstance().sendMyContactToOne(e.id); //sending contact update
+//            Thread.Sleep(400);
+//            ContactsStore.getInstance().sendMyContactToOne(e.id); //sending contact update
         }
 
         private void OnServerAccepted(object o, SocketAddedEventArgs e)
@@ -131,8 +132,8 @@ namespace flyBird
                 return;
             }
             uiMainForm.contactsPannel.addContact(e.id);
-            Thread.Sleep(400);
-            ContactsStore.getInstance().sendMyContactToOne(e.id);
+//            Thread.Sleep(400);
+//            ContactsStore.getInstance().sendMyContactToOne(e.id);
         }
 
 
@@ -171,6 +172,11 @@ namespace flyBird
         {
             try
             {
+                //encrypting...
+
+               // string text=EncryptDecrypt.Encrypt(text_);
+
+
                 //sending
                 sender.sendMessage(text, socketStore.getSocket(ipToken_));
 

@@ -20,7 +20,9 @@ namespace flyBird.WinFormUI
         {
             InitializeComponent();
             myProfile = ContactsStore.getInstance().getMyProfile();
-            loadExisting();
+            loadExistingProfile();
+            loadExistingHotspotSettings();
+            loadExistingKeySettings();
             mainForm = mf;
         }
 
@@ -29,7 +31,7 @@ namespace flyBird.WinFormUI
         private string contactsPath = "Contacts";
 
 
-        private void loadExisting()
+        private void loadExistingProfile()
         {
             Console.WriteLine("name: " + myProfile.name);
             nameText.Text = myProfile.name;
@@ -37,11 +39,27 @@ namespace flyBird.WinFormUI
             if (myProfile.displayProfile != "")
             {
                 Console.WriteLine("contact pic added to contact");
-                userPicture.Image = Image.FromFile(myProfile.displayProfile);
-                dp = myProfile.displayProfile;
+                if (File.Exists(myProfile.displayProfile))
+                {
+                    userPicture.Image = Image.FromFile(myProfile.displayProfile);
+                    dp = myProfile.displayProfile;
+                }
+               
+                
             }
         }
 
+        private void loadExistingHotspotSettings()
+        {
+            hotspotNameText.Text = settings.Default.hotspotName;
+            hotspotPasswordText.Text = settings.Default.hotsportPassword;
+        }
+
+
+        private void loadExistingKeySettings()
+        {
+            encryptionKeyText.Text = settings.Default.encryptKey;
+        }
 
         private void choosePicBtn_Click(object sender, EventArgs e)
         {
@@ -89,6 +107,62 @@ namespace flyBird.WinFormUI
             if (e.KeyCode==Keys.Enter)
             {
                 saveChangesBtn_Click_1(sender,EventArgs.Empty);
+            }
+        }
+
+        private void metroLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void savehotspotBtn_Click(object sender, EventArgs e)
+        {
+            if (hotspotNameText.Text.Length>=6 && hotspotPasswordText.Text.Length>=6)
+            {
+                settings.Default.hotspotName = hotspotNameText.Text;
+                settings.Default.hotsportPassword = hotspotPasswordText.Text;
+
+                mainForm.backPic_Click(sender,e);
+            }
+            else
+            {
+                MessageBox.Show("Please enter more than 6 characters in each name and password test boxes.",
+                    "Error input", MessageBoxButtons.OK);
+            }
+
+        }
+
+        private void metroTabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveKey_Click(object sender, EventArgs e)
+        {
+            if (encryptionKeyText.Text.Length>=3)
+            {
+                settings.Default.encryptKey = encryptionKeyText.Text;
+                mainForm.backPic_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Please enter more than 3 for encryption key",
+                   "Error input", MessageBoxButtons.OK);
             }
         }
     }

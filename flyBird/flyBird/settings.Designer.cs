@@ -37,7 +37,7 @@ namespace flyBird {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3461")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3661")]
         public int socketPort {
             get {
                 return ((int)(this["socketPort"]));
@@ -61,7 +61,7 @@ namespace flyBird {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3462")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3662")]
         public int fileSharePort {
             get {
                 return ((int)(this["fileSharePort"]));
@@ -116,6 +116,42 @@ namespace flyBird {
             }
             set {
                 this["contactPictures"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("flyBirdWiFi")]
+        public string hotspotName {
+            get {
+                return ((string)(this["hotspotName"]));
+            }
+            set {
+                this["hotspotName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("123456789")]
+        public string hotsportPassword {
+            get {
+                return ((string)(this["hotsportPassword"]));
+            }
+            set {
+                this["hotsportPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("encryptKeyDefault123")]
+        public string encryptKey {
+            get {
+                return ((string)(this["encryptKey"]));
+            }
+            set {
+                this["encryptKey"] = value;
             }
         }
     }

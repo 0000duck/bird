@@ -290,7 +290,7 @@ namespace flyBird
         {
             try
             {
-                if (_baseSocket.Connected && ar!=null)
+                if (_baseSocket.Connected)
                 {
                     int found = _baseSocket.EndReceive(ar); //need fixed when forced closed
 

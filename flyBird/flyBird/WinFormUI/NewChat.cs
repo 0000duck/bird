@@ -17,11 +17,24 @@ namespace flyBird.WinFormUI
             InitializeComponent();
             contactsOnMain = com;
             middleController = mc;
+            setIpHalf();
         }
 
         private ContactsOnMain contactsOnMain;
 
         private MiddleController middleController;
+
+
+
+        private string halfIp;
+        private void setIpHalf()
+        {
+            var myIp = IpDetails.getInstance().getMyLocalIp();
+            string[] ipParts = myIp.Split('.');
+            halfIp = ipParts[0] + "." + ipParts[1] + "." + ipParts[2] + ".";
+            connectIpTokenText.Text = halfIp;
+        }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

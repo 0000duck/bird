@@ -103,6 +103,16 @@ namespace flyBird.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blinkingRed1 {
+            get {
+                object obj = ResourceManager.GetObject("blinkingRed1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blinkingSignalGif {
             get {
                 object obj = ResourceManager.GetObject("blinkingSignalGif", resourceCulture);

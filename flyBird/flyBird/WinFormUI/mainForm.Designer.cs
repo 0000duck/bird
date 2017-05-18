@@ -31,26 +31,26 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.menuPic = new System.Windows.Forms.PictureBox();
             this.userNameLabel = new System.Windows.Forms.Label();
+            this.userPic = new System.Windows.Forms.PictureBox();
+            this.serverRunningPic = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.myIpLabel = new System.Windows.Forms.Label();
+            this.backPic = new System.Windows.Forms.PictureBox();
+            this.settingsPic = new System.Windows.Forms.PictureBox();
             this.container = new MetroFramework.Controls.MetroPanel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.serverBtnPic = new System.Windows.Forms.PictureBox();
             this.hotspotBtn = new System.Windows.Forms.PictureBox();
-            this.menuPic = new System.Windows.Forms.PictureBox();
-            this.userPic = new System.Windows.Forms.PictureBox();
-            this.serverRunningPic = new System.Windows.Forms.PictureBox();
-            this.backPic = new System.Windows.Forms.PictureBox();
-            this.settingsPic = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.serverBtnPic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotspotBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serverRunningPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.backPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverBtnPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotspotBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -71,6 +71,19 @@
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // menuPic
+            // 
+            this.menuPic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuPic.BackColor = System.Drawing.Color.Transparent;
+            this.menuPic.Image = ((System.Drawing.Image)(resources.GetObject("menuPic.Image")));
+            this.menuPic.Location = new System.Drawing.Point(830, 13);
+            this.menuPic.Name = "menuPic";
+            this.menuPic.Size = new System.Drawing.Size(26, 25);
+            this.menuPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.menuPic.TabIndex = 5;
+            this.menuPic.TabStop = false;
+            this.menuPic.Click += new System.EventHandler(this.menuPic_Click);
+            // 
             // userNameLabel
             // 
             this.userNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -84,6 +97,27 @@
             this.userNameLabel.TabIndex = 20;
             this.userNameLabel.Text = "userName";
             this.userNameLabel.Click += new System.EventHandler(this.userNameLabel_Click);
+            // 
+            // userPic
+            // 
+            this.userPic.Location = new System.Drawing.Point(611, 9);
+            this.userPic.Name = "userPic";
+            this.userPic.Size = new System.Drawing.Size(36, 36);
+            this.userPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.userPic.TabIndex = 19;
+            this.userPic.TabStop = false;
+            this.userPic.Click += new System.EventHandler(this.userPic_Click);
+            // 
+            // serverRunningPic
+            // 
+            this.serverRunningPic.Image = global::flyBird.Properties.Resources.chatLeading;
+            this.serverRunningPic.Location = new System.Drawing.Point(561, 9);
+            this.serverRunningPic.Name = "serverRunningPic";
+            this.serverRunningPic.Size = new System.Drawing.Size(36, 36);
+            this.serverRunningPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.serverRunningPic.TabIndex = 16;
+            this.serverRunningPic.TabStop = false;
+            this.serverRunningPic.Click += new System.EventHandler(this.serverRunningPic_Click);
             // 
             // label2
             // 
@@ -105,6 +139,30 @@
             this.myIpLabel.TabIndex = 12;
             this.myIpLabel.Text = "Not Connected";
             this.myIpLabel.Click += new System.EventHandler(this.myIpLabel_Click);
+            // 
+            // backPic
+            // 
+            this.backPic.BackColor = System.Drawing.Color.Transparent;
+            this.backPic.Image = ((System.Drawing.Image)(resources.GetObject("backPic.Image")));
+            this.backPic.Location = new System.Drawing.Point(12, 20);
+            this.backPic.Name = "backPic";
+            this.backPic.Size = new System.Drawing.Size(26, 25);
+            this.backPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.backPic.TabIndex = 4;
+            this.backPic.TabStop = false;
+            this.backPic.Click += new System.EventHandler(this.backPic_Click);
+            // 
+            // settingsPic
+            // 
+            this.settingsPic.BackColor = System.Drawing.Color.Transparent;
+            this.settingsPic.Image = ((System.Drawing.Image)(resources.GetObject("settingsPic.Image")));
+            this.settingsPic.Location = new System.Drawing.Point(12, 20);
+            this.settingsPic.Name = "settingsPic";
+            this.settingsPic.Size = new System.Drawing.Size(26, 25);
+            this.settingsPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.settingsPic.TabIndex = 3;
+            this.settingsPic.TabStop = false;
+            this.settingsPic.Click += new System.EventHandler(this.settings_Click);
             // 
             // container
             // 
@@ -149,64 +207,6 @@
             this.hotspotBtn.TabStop = false;
             this.hotspotBtn.Click += new System.EventHandler(this.hotspotBtn_Click);
             // 
-            // menuPic
-            // 
-            this.menuPic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.menuPic.BackColor = System.Drawing.Color.Transparent;
-            this.menuPic.Image = ((System.Drawing.Image)(resources.GetObject("menuPic.Image")));
-            this.menuPic.Location = new System.Drawing.Point(796, 13);
-            this.menuPic.Name = "menuPic";
-            this.menuPic.Size = new System.Drawing.Size(26, 25);
-            this.menuPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.menuPic.TabIndex = 5;
-            this.menuPic.TabStop = false;
-            this.menuPic.Click += new System.EventHandler(this.menuPic_Click);
-            // 
-            // userPic
-            // 
-            this.userPic.Location = new System.Drawing.Point(611, 9);
-            this.userPic.Name = "userPic";
-            this.userPic.Size = new System.Drawing.Size(36, 36);
-            this.userPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.userPic.TabIndex = 19;
-            this.userPic.TabStop = false;
-            this.userPic.Click += new System.EventHandler(this.userPic_Click);
-            // 
-            // serverRunningPic
-            // 
-            this.serverRunningPic.Image = global::flyBird.Properties.Resources.chatLeading;
-            this.serverRunningPic.Location = new System.Drawing.Point(561, 9);
-            this.serverRunningPic.Name = "serverRunningPic";
-            this.serverRunningPic.Size = new System.Drawing.Size(36, 36);
-            this.serverRunningPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.serverRunningPic.TabIndex = 16;
-            this.serverRunningPic.TabStop = false;
-            this.serverRunningPic.Click += new System.EventHandler(this.serverRunningPic_Click);
-            // 
-            // backPic
-            // 
-            this.backPic.BackColor = System.Drawing.Color.Transparent;
-            this.backPic.Image = ((System.Drawing.Image)(resources.GetObject("backPic.Image")));
-            this.backPic.Location = new System.Drawing.Point(835, 12);
-            this.backPic.Name = "backPic";
-            this.backPic.Size = new System.Drawing.Size(26, 25);
-            this.backPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.backPic.TabIndex = 4;
-            this.backPic.TabStop = false;
-            this.backPic.Click += new System.EventHandler(this.backPic_Click);
-            // 
-            // settingsPic
-            // 
-            this.settingsPic.BackColor = System.Drawing.Color.Transparent;
-            this.settingsPic.Image = ((System.Drawing.Image)(resources.GetObject("settingsPic.Image")));
-            this.settingsPic.Location = new System.Drawing.Point(835, 12);
-            this.settingsPic.Name = "settingsPic";
-            this.settingsPic.Size = new System.Drawing.Size(26, 25);
-            this.settingsPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.settingsPic.TabIndex = 3;
-            this.settingsPic.TabStop = false;
-            this.settingsPic.Click += new System.EventHandler(this.settings_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,13 +227,13 @@
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.serverBtnPic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotspotBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serverRunningPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.backPic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serverBtnPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotspotBtn)).EndInit();
             this.ResumeLayout(false);
 
         }

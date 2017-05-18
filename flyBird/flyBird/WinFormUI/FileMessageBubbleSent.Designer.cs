@@ -65,7 +65,7 @@
             // 
             this.overallProgressBar.Location = new System.Drawing.Point(3, 98);
             this.overallProgressBar.Name = "overallProgressBar";
-            this.overallProgressBar.Size = new System.Drawing.Size(330, 16);
+            this.overallProgressBar.Size = new System.Drawing.Size(327, 16);
             this.overallProgressBar.TabIndex = 1;
             // 
             // bubbleTime

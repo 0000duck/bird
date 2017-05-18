@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using flyBird.Encryptor;
 
 namespace flyBird
 {
@@ -86,6 +87,11 @@ namespace flyBird
                     //then this passes only msgs that are not control msgs to forward.
                     if (text.Length > 0)
                     {
+                        
+                        //decrypting function here
+                       //string decrypted= EncryptDecrypt.Decrypt(receivedText);
+
+
                         OnTextMessageReceived(id, receivedText);
                         //text msg processing loogic here
                         Console.WriteLine("Recieved: {0}\nfrom: {1}", text, id); //show in console

@@ -44,6 +44,9 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="RSAx">
+      <HintPath>..\..\RSAx.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -67,6 +70,7 @@
     <Compile Include="Contacts\ContactBuilder.cs" />
     <Compile Include="Contacts\ContactsStore.cs" />
     <Compile Include="ControlMessage\ControlMessage.cs" />
+    <Compile Include="Encryptor\EncryptDecrypt.cs" />
     <Compile Include="FileShare\AcceptListener.cs" />
     <Compile Include="FileShare\FileShareMiddleController.cs" />
     <Compile Include="FileShare\Headers.cs" />
@@ -318,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\newChatRedd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blinkingRed1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

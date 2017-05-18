@@ -66,7 +66,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Filename";
-            this.columnHeader2.Width = 271;
+            this.columnHeader2.Width = 229;
             // 
             // columnHeader3
             // 
@@ -97,7 +97,7 @@
             // 
             this.overallProgressBar.Location = new System.Drawing.Point(3, 98);
             this.overallProgressBar.Name = "overallProgressBar";
-            this.overallProgressBar.Size = new System.Drawing.Size(330, 16);
+            this.overallProgressBar.Size = new System.Drawing.Size(327, 16);
             this.overallProgressBar.TabIndex = 1;
             // 
             // bubbleTime
@@ -111,7 +111,7 @@
             // 
             // outputButton
             // 
-            this.outputButton.Location = new System.Drawing.Point(177, 116);
+            this.outputButton.Location = new System.Drawing.Point(173, 116);
             this.outputButton.Name = "outputButton";
             this.outputButton.Size = new System.Drawing.Size(75, 15);
             this.outputButton.TabIndex = 6;
@@ -121,7 +121,7 @@
             // 
             // fileOpenBtn
             // 
-            this.fileOpenBtn.Location = new System.Drawing.Point(258, 116);
+            this.fileOpenBtn.Location = new System.Drawing.Point(255, 116);
             this.fileOpenBtn.Name = "fileOpenBtn";
             this.fileOpenBtn.Size = new System.Drawing.Size(75, 15);
             this.fileOpenBtn.TabIndex = 7;

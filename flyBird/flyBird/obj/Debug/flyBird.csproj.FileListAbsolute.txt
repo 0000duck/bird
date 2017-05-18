@@ -44,3 +44,25 @@ C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.AudioMe
 C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.ContactTab.resources
 C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.UserSettings.resources
 C:\Users\Dushan\Desktop\bird\flyBird\flyBird\obj\Debug\flyBird.WinFormUI.NewChat.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\bin\Debug\flyBird.exe.config
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\bin\Debug\flyBird.exe
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\bin\Debug\flyBird.pdb
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\bin\Debug\MetroFramework.Design.dll
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\bin\Debug\MetroFramework.dll
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.csprojResolveAssemblyReference.cache
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.AudioRecorder.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.Properties.Resources.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.ChatBubble.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\BirdUI1.ChatDisplay.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.WinFormUI.ContactTab.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.ContactsOnMain.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.WinFormUI.AudioMessageBubble.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.WinFormUI.FileMessageBubbleSent.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.WinFormUI.FileMessageBubble.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.MainForm.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.WinFormUI.NewChat.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.WinFormUI.UserSettings.resources
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.csproj.GenerateResource.Cache
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.exe
+C:\Users\Dushan\Desktop\flyBird w 10.56pm\flyBird\obj\Debug\flyBird.pdb

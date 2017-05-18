@@ -63,7 +63,7 @@ namespace BirdUI1
             // userTokenText
             // 
             this.userTokenText.AutoSize = true;
-            this.userTokenText.Location = new System.Drawing.Point(505, 0);
+            this.userTokenText.Location = new System.Drawing.Point(423, 0);
             this.userTokenText.Name = "userTokenText";
             this.userTokenText.Size = new System.Drawing.Size(34, 13);
             this.userTokenText.TabIndex = 9;
@@ -159,7 +159,7 @@ namespace BirdUI1
             // 
             // 
             this.sendingTextBox.CustomButton.Image = null;
-            this.sendingTextBox.CustomButton.Location = new System.Drawing.Point(337, 2);
+            this.sendingTextBox.CustomButton.Location = new System.Drawing.Point(335, 2);
             this.sendingTextBox.CustomButton.Name = "";
             this.sendingTextBox.CustomButton.Size = new System.Drawing.Size(55, 55);
             this.sendingTextBox.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;

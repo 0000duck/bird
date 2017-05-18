@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace flyBird.Contacts
@@ -83,25 +85,47 @@ namespace flyBird.Contacts
             myProfile.name = name;
             myProfile.mac = mac;
             myProfile.displayProfile = dpPath;
-            myProfile.currentIp= IpDetails.getInstance().getMyLocalIp();
+            myProfile.currentIp = IpDetails.getInstance().getMyLocalIp();
 
             StorageHandler.updateMyContactsFile(this);
 
-            sendMyContactToAll();
+            //sendMyContactToAll();
         }
 
         public void sendMyContactToAll()
         {
             foreach (var ip in SocketStore.getInstance().getAllConnectedIps())
             {
-                
-                ControlMessage.getInstance().sendContactUpdateSignal(ip, myProfile);
+                sendMyContactToOne(ip);
+//                MiddleController.getInstance().fileShareController.sendFile();
             }
         }
 
         public void sendMyContactToOne(string ip)
         {
             ControlMessage.getInstance().sendContactUpdateSignal(ip, myProfile);
+
+        }
+
+
+        public void renameAndSendMyPic()
+        {
+//            string ext = Path.GetExtension(myProfile.displayProfile);
+            string originalpath = myProfile.displayProfile;
+            string ext = Path.GetExtension(originalpath);
+
+            System.IO.Directory.CreateDirectory("Temp");
+            string outPath = "Temp//" + myProfile.mac + ext;
+
+            //System.IO.File.Copy(originalpath, outPath, true);
+            if (MiddleController.getInstance().fileShareController.isTransactionGoing())
+            {
+                return;
+            }
+
+
+          //  MiddleController.getInstance().fileShareController.sendFile(outPath);
+            
         }
     }
 }

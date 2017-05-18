@@ -233,7 +233,7 @@ namespace flyBird
 
         private void mainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            middleController.closeAllSockets();
+//            middleController.closeAllSockets(); //set this after debugx
             Environment.Exit(0);
         }
 
@@ -255,23 +255,7 @@ namespace flyBird
             myIpLabel.Text = IpDetails.getInstance().getMyLocalIp();
         }
 
-        private void serverBtn_Click(object sender, EventArgs e)
-        {
-            if (middleController.serverPart.isServerRunning)
-            {
-
-                //stop server
-                middleController.stopServer();
-
-                serverRunningPic.Visible = false;
-            }
-            else
-            {
-                //start server
-                middleController.startServer("");
-                serverRunningPic.Visible = true;
-            }
-        }
+       
 
         private void myIpLabel_Click(object sender, EventArgs e)
         {
@@ -328,7 +312,7 @@ namespace flyBird
             else
             {
                 //start now
-                Hotspot.getInstance().createHotspot("name","password");
+                Hotspot.getInstance().createHotspot(flyBird.settings.Default.hotspotName,flyBird.settings.Default.hotsportPassword);
                 hotspotBtn.Image = Properties.Resources.yesHotspotWhite;
                 hotspotRunning = true;
             }

@@ -70,17 +70,17 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLabel.Location = new System.Drawing.Point(316, 22);
+            this.timeLabel.Font = new System.Drawing.Font("Myriad Arabic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Location = new System.Drawing.Point(276, 19);
             this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(45, 24);
+            this.timeLabel.Size = new System.Drawing.Size(48, 33);
             this.timeLabel.TabIndex = 4;
             this.timeLabel.Text = "time";
             // 
             // recordingIcon
             // 
-            this.recordingIcon.Image = global::flyBird.Properties.Resources._48c99328741557_55cfd3c8be389;
-            this.recordingIcon.Location = new System.Drawing.Point(206, 12);
+            this.recordingIcon.Image = global::flyBird.Properties.Resources.blinkingRed1;
+            this.recordingIcon.Location = new System.Drawing.Point(188, 12);
             this.recordingIcon.Name = "recordingIcon";
             this.recordingIcon.Size = new System.Drawing.Size(60, 47);
             this.recordingIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -91,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(188)))));
             this.ClientSize = new System.Drawing.Size(423, 93);
             this.Controls.Add(this.recordingIcon);
             this.Controls.Add(this.timeLabel);

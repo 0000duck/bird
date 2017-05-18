@@ -67,10 +67,10 @@ namespace flyBird
 
 
             //after connected methods.. 
-            ControlMessage.getInstance().sendConnectedSignal((socket.LocalEndPoint as IPEndPoint).Address.ToString()); //sending connected
-
-            Thread.Sleep(400);
-            ContactsStore.getInstance().sendMyContactToOne((socket.LocalEndPoint as IPEndPoint).Address.ToString()); //sending contact update
+//            ControlMessage.getInstance().sendConnectedSignal((socket.LocalEndPoint as IPEndPoint).Address.ToString()); //sending connected
+//
+//            Thread.Sleep(400);
+//            ContactsStore.getInstance().sendMyContactToOne((socket.LocalEndPoint as IPEndPoint).Address.ToString()); //sending contact update
 
         }
 

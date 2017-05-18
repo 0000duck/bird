@@ -64,6 +64,8 @@ namespace flyBird
             if (contacts.ContainsKey(e.id))
             {
                 contacts[e.id].updateContact(cnt);
+
+//                MiddleController.getInstance().fileShareController.setupTempOutputFolder(settings.Default.contactPictures);
             }
             else
             {
@@ -174,6 +176,19 @@ namespace flyBird
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             new NewChat(this,middleController).Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            ContactsStore.getInstance().renameAndSendMyPic();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            foreach (var cont in contacts)
+            {
+               cont.Value.updateContactPic();
+            }
         }
     }
 }

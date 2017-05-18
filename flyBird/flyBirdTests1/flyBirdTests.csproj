@@ -57,6 +57,7 @@
     <Compile Include="Contacts\ContactsStoreTests.cs" />
     <Compile Include="ControlMessage\ControlMessageTests.cs" />
     <Compile Include="EncoderTests.cs" />
+    <Compile Include="Encryptor\EncryptDecryptTests.cs" />
     <Compile Include="FileShare\FileShareMiddleControllerTests.cs" />
     <Compile Include="HotspotAndIP\HotspotTests.cs" />
     <Compile Include="HotspotAndIP\IpDetailsTests.cs" />

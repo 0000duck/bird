@@ -6,13 +6,13 @@
       <Value Profile="(Default)">##</Value>
     </Setting>
     <Setting Name="socketPort" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3461</Value>
+      <Value Profile="(Default)">3661</Value>
     </Setting>
     <Setting Name="controlPrefix" Type="System.String" Scope="User">
       <Value Profile="(Default)">*+.</Value>
     </Setting>
     <Setting Name="fileSharePort" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3462</Value>
+      <Value Profile="(Default)">3662</Value>
     </Setting>
     <Setting Name="outputFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">Output/Received</Value>
@@ -22,6 +22,18 @@
     </Setting>
     <Setting Name="audioInPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">Output/Received</Value>
+    </Setting>
+    <Setting Name="contactPictures" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Contacts</Value>
+    </Setting>
+    <Setting Name="hotspotName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">flyBirdWiFi</Value>
+    </Setting>
+    <Setting Name="hotsportPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">123456789</Value>
+    </Setting>
+    <Setting Name="encryptKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">encryptKeyDefault123</Value>
     </Setting>
   </Settings>
 </SettingsFile>
